@@ -4,5 +4,7 @@
   | default @import url()
   |============================
 */
+/* Fonts */
+@import url('./fonts.css');
 
 @import url('./basic-styles.css');
