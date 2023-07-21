@@ -4,5 +4,39 @@
   | default @import url()
   |============================
 */
+
+/* <!-- Modarn normalize --> */
 @import url('../../node_modules/modern-normalize/modern-normalize.css');
+
+/* <!-- Reset --> */
 @import url('./basic-styles.css');
+
+/* <!-- Header  --> */
+@import url('./header.css');
+
+/* <!-- Hero  --> */
+@import url('./categories.css');
+
+/* <!-- Search  --> */
+@import url('./search.css');
+
+/* <!-- Recipes  --> */
+@import url('./recipes.css');
+
+/* <!-- Popular-recipes  --> */
+@import url('./popular-recipes.css');
+
+/* <!-- Favorites  --> */
+@import url('./favorites.css');
+
+/* <!----------------------------- Modal --------------------------------> */
+
+/* <!-- Recipe-modal --> */
+@import url('./recipe-modal.css');
+
+/* <!-- Rating modal --> */
+@import url('./rating-modal.css');
+
+/* <!-- Order-now-modal --> */
+@import url('./order-now-modal.css');
+
