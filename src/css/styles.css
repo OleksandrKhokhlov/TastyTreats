@@ -4,6 +4,8 @@
   | default @import url()
   |============================
 */
+/* Fonts */
+@import url('./fonts.css');
 
 /* <!-- Modarn normalize --> */
 @import url('../../node_modules/modern-normalize/modern-normalize.css');
