@@ -10,8 +10,22 @@
     padding-bottom: 48px;
 }
 
+.hero-title, .hero-title > span {
+    font-size: 26px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
 .hero-title {
     padding-bottom: 14px;
+    color: var(--pr-text-color);
+    font-weight: 600;
+}
+
+.hero-title > span {
+    color: var(--accent-color);
+    font-style: italic;
+    font-weight: 400;
 }
 
 .hero-description {
@@ -20,7 +34,7 @@
 
 .hero-btn {
     background: rgba(0, 0, 0, 0);
-    color: #050505;
+    color: var(--pr-text-color);
     border: 1px solid var(--accent-color);
     /* прибрати */
     outline: none;
