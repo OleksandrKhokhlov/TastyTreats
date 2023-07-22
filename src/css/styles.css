@@ -17,6 +17,9 @@
 @import url('./header.css');
 
 /* <!-- Hero  --> */
+@import url('./hero.css');
+
+/* <!-- Categories  --> */
 @import url('./categories.css');
 
 /* <!-- Search  --> */
