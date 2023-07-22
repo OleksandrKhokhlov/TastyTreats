@@ -1,4 +1,5 @@
-import axios from "axios";
+import axios from "axios"
+
 
 import _ from "lodash"
 
@@ -7,6 +8,7 @@ const selectedCategoryEL = document.querySelector('.menu-item .active')
 const formEl = document.querySelector('.search-filters');
 const searchSelectEl = document.querySelector('#search-key');
 const timeSelectEl = document.querySelector('#time-key')
+
 const areaSelectElement = document.querySelector('#area-key');
 const ingredientsSelectElement = document.querySelector('#ingredients-key');
 
@@ -42,6 +44,7 @@ const ingredientsKeys = getIngredientsKeys()
             <option value="${results[result].name.toLowerCase()}">${results[result].name}</option>
         `)
     }
+
 })
 
 const recipesReq = async () =>{
@@ -59,3 +62,4 @@ const recipesReq = async () =>{
 formEl.addEventListener('change', _.debounce(() => {
     recipesReq()
 }, 300, {leading : false, trailing : true}))
+
