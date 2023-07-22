@@ -1,7 +1,6 @@
-import axios, { formToJSON } from "axios";
+import axios from "axios";
 
-
-var _ = require("lodash")
+import _ from "lodash"
 
 const selectedCategoryEL = document.querySelector('.menu-item .active')
 
