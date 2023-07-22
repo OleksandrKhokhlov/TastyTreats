@@ -1,0 +1,28 @@
+.hero-section * {
+    outline: 1px solid var(--rating-color);
+}
+.hero-container {
+    padding: 0 20px;
+}
+
+.hero-wrapper {
+    padding-top: 90px;
+    padding-bottom: 48px;
+}
+
+.hero-title {
+    padding-bottom: 14px;
+}
+
+.hero-description {
+    padding-bottom: 28px;
+}
+
+.hero-btn {
+    background: rgba(0, 0, 0, 0);
+    color: #050505;
+    border: 1px solid var(--accent-color);
+    /* прибрати */
+    outline: none;
+}
+
