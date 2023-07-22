@@ -107,6 +107,16 @@ label{
 }
 
 
+.filter-reset svg{
+    height: 16px;
+    width: 16px;
+    fill: var(--accent-color);
+    position: relative;
+    top: 4px;
+}
+
+
+
 @media screen and (min-width: 768px){
     .search-filters{
         margin: 0 32px;
