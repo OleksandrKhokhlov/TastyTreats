@@ -11,3 +11,4 @@ import './js/favorites';
 import './js/recipe-modal';
 import './js/rating-modal';
 import './js/order-now-modal';
+import './js/categories.js';
