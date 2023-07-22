@@ -7,7 +7,6 @@ const getAreaKeys = async () =>{
     const response = await axios.get('https://tasty-treats-backend.p.goit.global/api/areas')
     
     const result = await response.data
-    console.log(result)
     return result
 }
 
@@ -15,7 +14,6 @@ const getIngredientsKeys = async () =>{
     const response = await axios.get('https://tasty-treats-backend.p.goit.global/api/ingredients')
     
     const result = await response.data
-    console.log(result)
     return result
 }
 
