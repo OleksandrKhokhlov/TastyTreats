@@ -1,5 +1,13 @@
-import axios from "axios";
+import axios, { formToJSON } from "axios";
 
+
+var _ = require("lodash")
+
+const selectedCategoryEL = document.querySelector('.menu-item .active')
+
+const formEl = document.querySelector('.search-filters');
+const searchSelectEl = document.querySelector('#search-key');
+const timeSelectEl = document.querySelector('#time-key')
 const areaSelectElement = document.querySelector('#area-key');
 const ingredientsSelectElement = document.querySelector('#ingredients-key');
 
@@ -36,3 +44,19 @@ const ingredientsKeys = getIngredientsKeys()
         `)
     }
 })
+
+const recipesReq = async () =>{
+    const response = await axios.get(
+        `https://tasty-treats-backend.p.goit.global/api/recipes?
+        category=${selectedCategoryEL.innerHTML}
+        &title=${searchSelectEl.value}&area=${areaSelectElement.value}
+        &time=${timeSelectEl.value}&ingredient=${ingredientsSelectElement.value}
+        &page=1&limit=6`)
+    
+    const result = await response.data
+    return result;
+}
+
+formEl.addEventListener('change', _.debounce(() => {
+    recipesReq()
+}, 300, {leading : false, trailing : true}))
