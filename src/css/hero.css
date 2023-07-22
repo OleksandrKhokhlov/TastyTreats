@@ -43,3 +43,43 @@
     outline: none;
 }
 
+/* cards */
+.hero-cards .card {
+    /* display: block; */
+    overflow: hidden;
+}
+
+.hero-cards .img {
+    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+
+}
+
+.hero-cards .card {
+    background: var(--pr-text-color);
+    border-radius: 15px;
+    height: 280px;
+}
+
+.hero-first-card {
+    width: 80px;
+}
+.hero-first-card .img {
+    height: 100%;
+}
+
+.hero-second-card, .hero-third-card {
+    width: 200px;
+}
+
+.hero-second-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-second-card .img {
+    width: 157px;
+    height: 142px;
+}
