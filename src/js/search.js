@@ -6,11 +6,16 @@ import _ from "lodash"
 const selectedCategoryEL = document.querySelector('.menu-item .active')
 
 const formEl = document.querySelector('.search-filters');
+
 const searchSelectEl = document.querySelector('#search-key');
 const timeSelectEl = document.querySelector('#time-key')
-
 const areaSelectElement = document.querySelector('#area-key');
 const ingredientsSelectElement = document.querySelector('#ingredients-key');
+
+const resetFiltersEl = document.querySelector('.filter-reset')
+
+
+
 
 const getAreaKeys = async () =>{
     const response = await axios.get('https://tasty-treats-backend.p.goit.global/api/areas')
@@ -31,7 +36,7 @@ const areaKeys = getAreaKeys()
     for(let result in results){
         areaSelectElement.insertAdjacentHTML('beforeend',
         `
-            <option value="${results[result].name.toLowerCase()}">${results[result].name}</option>
+            <option value="${results[result].name}">${results[result].name}</option>
         `)
     }
 })
@@ -41,7 +46,7 @@ const ingredientsKeys = getIngredientsKeys()
     for(let result in results){
         ingredientsSelectElement.insertAdjacentHTML('beforeend',
         `
-            <option value="${results[result].name.toLowerCase()}">${results[result].name}</option>
+            <option value="${results[result].name}">${results[result].name}</option>
         `)
     }
 
@@ -50,13 +55,11 @@ const ingredientsKeys = getIngredientsKeys()
 const recipesReq = async () =>{
     const response = await axios.get(
         `https://tasty-treats-backend.p.goit.global/api/recipes?
-        category=${selectedCategoryEL.innerHTML}
-        &title=${searchSelectEl.value}&area=${areaSelectElement.value}
+        title=${searchSelectEl.value}&area=${areaSelectElement.value}
         &time=${timeSelectEl.value}&ingredient=${ingredientsSelectElement.value}
         &page=1&limit=6`)
     
-    const result = await response.data
-    return result;
+    console.log("RESULT: " + response)
 }
 
 formEl.addEventListener('change', _.debounce(() => {
