@@ -89,3 +89,6 @@
     padding-bottom: 24px;
   }
 }
+.active_btn{
+  color: var(--accent-color);
+}
