@@ -1,9 +1,9 @@
 :root {
   /* --Accent-- */
-  --bcg-body-color: #F8F8F8;
+  --bcg-body-color: #f8f8f8;
   --bcg-body-DT-color: #161616;
-  --accent-color: #9BB537;
-  --rating-color: #EEA10C;
+  --accent-color: #9bb537;
+  --rating-color: #eea10c;
   --switch-color-uncheck: rgba(160, 158, 160, 0.6);
   --rating-color-LT-uncheck: rgba(248, 248, 248, 0.1);
   --rating-color-DT-uncheck: rgba(255, 255, 255, 0.1);
@@ -11,7 +11,7 @@
   /* --Text-- */
   --pr-text-color: #050505;
   --pr-text-DT-color: #ffffff;
-  --sec-text-color: #F8F8F8;
+  --sec-text-color: #f8f8f8;
   --filtr-text-color: rgba(5, 5, 5, 0.5);
   --filtr-text-DT-color: rgba(255, 255, 255, 0.5);
   /* --Description-- */
