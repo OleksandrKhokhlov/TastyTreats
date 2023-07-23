@@ -2,21 +2,31 @@
 
 import axios from 'axios';
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/';
-const ENDPOINTS_RECIPES = 'recipes/';
-const ENDPOINTS_RECIPES_POPULAR = 'popular/';
-const ENDPOINTS_AREAS = 'areas/';
-const ENDPOINTS_CATEGORIES = 'categories/';
-const ENDPOINTS_EVENTS = 'events/';
-const ENDPOINTS_INGREDIENTS = 'ingredients/';
+const windowWidth = Math.round(window.visualViewport.width);
 
 export class testyTreatsAPI {
   page = 1;
   limit = 6;
-  id = null;
+  id = '';
+  title = '';
+  category = '';
+  area = '';
+  ingredient = '';
+  time = '';
 
   async loadRecipes() {
-    return await axios.get(`${BASE_URL}` + `${ENDPOINTS_RECIPES}`, {
+    if (windowWidth > 760 && windowWidth < 1280) {
+      this.limit = 8;
+    } else if (windowWidth > 1280) {
+      this.limit = 9;
+    }
+    return await axios.get(`${BASE_URL}recipes/`, {
       params: {
+        title: this.title,
+        category: this.category,
+        area: this.area,
+        ingredient: this.ingredient,
+        time: this.time,
         page: this.page,
         limit: this.limit,
       },
@@ -24,62 +34,26 @@ export class testyTreatsAPI {
   }
 
   async loadRecipesPopular() {
-    return await axios.get(
-      `${BASE_URL}` + `${ENDPOINTS_RECIPES}` + `${ENDPOINTS_RECIPES_POPULAR}`,
-      {
-        params: {
-          page: this.page,
-          limit: this.limit,
-        },
-      }
-    );
+    return await axios.get(`${BASE_URL}recipes/popular/`);
   }
 
   async loadRecipesById() {
-    return await axios.get(
-      `${BASE_URL}` + `${ENDPOINTS_RECIPES}` + `${this.id}`,
-      {
-        params: {
-          page: this.page,
-          limit: this.limit,
-        },
-      }
-    );
+    return await axios.get(`${BASE_URL}recipes/${this.id}`);
   }
 
   async loadAreas() {
-    return await axios.get(`${BASE_URL}` + `${ENDPOINTS_AREAS}`, {
-      params: {
-        page: this.page,
-        limit: this.limit,
-      },
-    });
+    return await axios.get(`${BASE_URL}areas/`);
   }
 
   async loadCategories() {
-    return await axios.get(`${BASE_URL}` + `${ENDPOINTS_CATEGORIES}`, {
-      params: {
-        page: this.page,
-        limit: this.limit,
-      },
-    });
+    return await axios.get(`${BASE_URL}categories/`);
   }
 
   async loadEvents() {
-    return await axios.get(`${BASE_URL}` + `${ENDPOINTS_EVENTS}`, {
-      params: {
-        page: this.page,
-        limit: this.limit,
-      },
-    });
+    return await axios.get(`${BASE_URL}events/`);
   }
 
   async loadIngredients() {
-    return await axios.get(`${BASE_URL}` + `${ENDPOINTS_INGREDIENTS}`, {
-      params: {
-        page: this.page,
-        limit: this.limit,
-      },
-    });
+    return await axios.get(`${BASE_URL}ingredients/`);
   }
 }
