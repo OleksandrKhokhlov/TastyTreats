@@ -2,7 +2,6 @@
 
 import axios from 'axios';
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/';
-const windowWidth = Math.round(window.visualViewport.width);
 
 export class testyTreatsAPI {
   page = 1;
@@ -15,6 +14,7 @@ export class testyTreatsAPI {
   time = '';
 
   async loadRecipes() {
+    const windowWidth = Math.round(window.visualViewport.width);
     if (windowWidth > 760 && windowWidth < 1280) {
       this.limit = 8;
     } else if (windowWidth > 1280) {
