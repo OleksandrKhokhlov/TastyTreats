@@ -81,7 +81,7 @@
 }
 
 .tui-pagination .tui-first-child {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 .tui-pagination .tui-last-child.tui-is-selected {
@@ -117,8 +117,9 @@
   border-left: 0;
 }
 
-.tui-pagination .tui-next + .tui-last, .tui-pagination .tui-first {
-    margin-left: 0;
+.tui-pagination .tui-next + .tui-last,
+.tui-pagination .tui-first {
+  margin-left: 0;
 }
 
 .tui-pagination .tui-ico-first,
@@ -185,9 +186,9 @@
 .tui-pagination .tui-is-disabled.tui-next {
   background-color: #050505;
 }
-
-.tui-pagination .tui-is-disabled.tui-first {
-    margin-left: 0;
+.tui-pagination span:first-child,
+.tui-pagination button:first-child {
+  margin-left: 0;
 }
 
 .tui-pagination .tui-is-disabled .tui-ico-prev {
@@ -233,4 +234,35 @@
   height: 12px;
   padding: 8px 0 6px;
   vertical-align: top;
+}
+
+@media screen and (min-width: 768px) {
+  .tui-pagination {
+    height: 44px;
+  }
+  .tui-pagination .tui-page-btn {
+    width: 44px;
+    margin-left: 10px;
+    line-height: 2.4;
+  }
+  .tui-pagination .tui-first-child {
+    margin-left: 0;
+  }
+  .tui-pagination .tui-first,
+  .tui-pagination .tui-prev,
+  .tui-pagination .tui-next,
+  .tui-pagination .tui-last,
+  .tui-pagination .tui-prev-is-ellip,
+  .tui-pagination .tui-next-is-ellip {
+    line-height: 42px;
+  }
+  .tui-pagination .tui-prev {
+    margin-right: 24px;
+    margin-left: 8px;
+  }
+
+  .tui-pagination .tui-next {
+    margin-left: 24px;
+    margin-right: 8px;
+  }
 }
