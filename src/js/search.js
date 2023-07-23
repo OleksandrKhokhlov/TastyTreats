@@ -11,6 +11,11 @@ const areaSelectElement = document.querySelector('#area-key');
 const ingredientsSelectElement = document.querySelector('#ingredients-key');
 const resetFiltersEl = document.querySelector('.filter-reset')
 
+let areaSlimSelect = undefined
+let timeSlimSelect = undefined
+let ingredientSlimSelect = undefined
+
+
 const getAreaKeys = async () =>{
     const response = await axios.get('https://tasty-treats-backend.p.goit.global/api/areas')
     
@@ -34,7 +39,7 @@ getAreaKeys()
         `)
     }
 
-    new SlimSelect({
+     areaSlimSelect = new SlimSelect({
         select : areaSelectElement,
         settings : {
             showSearch : false,
@@ -54,7 +59,7 @@ getIngredientsKeys()
         `)
     }
 
-    new SlimSelect({
+     ingredientSlimSelect =new SlimSelect({
         select : ingredientsSelectElement,
         settings : {
             showSearch : false,
@@ -67,7 +72,7 @@ getIngredientsKeys()
 })
 
 
-new SlimSelect({
+timeSlimSelect = new SlimSelect({
     select : timeSelectEl,
     settings : {
         showSearch : false,
@@ -81,17 +86,23 @@ new SlimSelect({
 
 
 
-//const recipesReq = async () =>{
-//    const response = await axios.get(
-//        `https://tasty-treats-backend.p.goit.global/api/recipes?
-//        title=${searchSelectEl.value}&area=${areaSelectElement.value}
-//        &time=${timeSelectEl.value}&ingredient=${ingredientsSelectElement.value}
-//        &page=1&limit=6`)
-//    
-//   console.log("RESULT: " + response)
-//}
+const recipesReq = async () =>{
+    const response = await axios.get(
+        `https://tasty-treats-backend.p.goit.global/api/recipes?
+        title=${searchSelectEl.value}&area=${areaSelectElement.value}
+        &time=${timeSelectEl.value}&ingredient=${ingredientsSelectElement.value}
+       &page=1&limit=6`)
+   
+   console.log("RESULT: " + response)
+}
 
 formEl.addEventListener('change', _.debounce(() => {
     recipesReq()
 }, 300, {leading : false, trailing : true}))
 
+resetFiltersEl.addEventListener('click', () =>{
+    areaSlimSelect.setSelected('')
+    ingredientSlimSelect.setSelected('')
+    timeSlimSelect.setSelected('')
+    searchSelectEl.value = ''
+})

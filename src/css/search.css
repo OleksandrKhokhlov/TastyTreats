@@ -1,16 +1,18 @@
 .search-filters{
-    width: 335px;
+    width: 100vw;
+    padding: 0 20px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    margin: 0 auto;
 }
 
 input, select{
     outline:none;
     background: transparent;
+
+    color: #000;
 }
 
 label{
@@ -30,14 +32,14 @@ label{
 }
 
 .ss-main{
-    width: 160px ;
+    width: 100% ;
     padding: 5px ;
 
 
     border: 1px solid #05050533 ;
     border-radius: 15px ; 
 
-    color: #05050580 ;
+    color: #000;
     color: rgba(5, 5, 5, 0.50) ;
     font-family: Inter ;
     font-size: 12px ;
@@ -52,12 +54,44 @@ label{
 
 }
 
+.ss-main:focus{
+    box-shadow: none;
+}
+
 .ss-content .ss-list {
     max-height: 200px; 
-    overflow-y: auto; 
+    overflow-y: auto;
+    
+    border-radius: 14px;
+    background: #FFF;
+    box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
+
+  }
+
+  .ss-single{
+    color: #000;
+    line-height: 1em;
+  }
+
+  .ss-placeholder{
+    padding: 0 !important;
   }
 
 
+.search-label{
+    width: 100%;
+}
+
+#search-key{
+    width: 100%;
+    margin-bottom: 14px;
+    padding: 14px 0 14px 18px;
+
+    border: 1px solid #05050533;
+
+    border-radius: 15px;
+
+}
 
 #search-key::placeholder{
     color: #05050580;
@@ -68,20 +102,14 @@ label{
     line-height: 1.16;
 }
 
-#search-key{
-    width: 335px;
-    margin-bottom: 14px;
-    padding: 14px 0 14px 18px;
 
-    border: 1px solid #05050533;
-
-    border-radius: 15px;
-
+.area-label, .time-label {
+    width: calc(50% - 20px);
 }
 
-
-
-
+.ingredients-label{
+    width: 50%;
+}
 
 .filter-reset{
     margin: 0;
