@@ -1,30 +1,31 @@
+
+
 <form class="search-filters">
-    <label class="search-label">
+   <label class="search-label">
         Search
         <input type="text" id="search-key" name="search-key" placeholder="Enter text" >
     </label>
 
+    
+
     <label class="time-label">
         Time
-        <div class="custom-select">
             <select name="time-key" id="time-key">
-                <option value="">0 min</option>
+                <option data-placeholder="true"></option>
+
                 <option value="10">10 min</option>
                 <option value="20">20 min</option>
                 <option value="30">30 min</option>
                 <option value="40">40 min</option>
             </select>
-        </div>
         
     </label>
 
-    <label class="area-label">
+   <label class="area-label">
         Area
-        <div class="custom-select">
             <select name="area-key" id="area-key" >
-                <option value="">Region</option>
+                <option data-placeholder="true"></option>
             </select>
-        </div>
         
     </label>
 
@@ -32,12 +33,9 @@
 
     <label class="ingredients-label">
         Ingredients
-        <div class="custom-select">
             <select name="ingredients-key" id="ingredients-key" >
-                <option value="">Product</option>
+                <option data-placeholder="true"></option>
             </select>
-
-        </div>
     </label>
 
     <p class="filter-reset">
@@ -46,4 +44,5 @@
         </svg>   
         Reset the filter
     </p>
+    
 </form>
