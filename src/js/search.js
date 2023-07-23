@@ -33,6 +33,16 @@ getAreaKeys()
             <option value="${results[result].name}">${results[result].name}</option>
         `)
     }
+
+    new SlimSelect({
+        select : areaSelectElement,
+        settings : {
+            showSearch : false,
+            placeholderText: 'Region',
+            allowDeselect: true,
+            maxValuesShown: 6,
+        }
+    })
 })
 
 getIngredientsKeys()
@@ -44,6 +54,16 @@ getIngredientsKeys()
         `)
     }
 
+    new SlimSelect({
+        select : ingredientsSelectElement,
+        settings : {
+            showSearch : false,
+            placeholderText: 'Product',
+            allowDeselect: true,
+            maxValuesShown: 6,
+        }
+    })
+
 })
 
 
@@ -53,26 +73,13 @@ new SlimSelect({
         showSearch : false,
         placeholderText: '0 min',
         allowDeselect: true,
+        maxValuesShown: 6,
     }
 })
 
-new SlimSelect({
-    select : areaSelectElement,
-    settings : {
-        showSearch : false,
-        placeholderText: 'Region',
-        allowDeselect: true,
-    }
-})
 
-new SlimSelect({
-    select : ingredientsSelectElement,
-    settings : {
-        showSearch : false,
-        placeholderText: 'Product',
-        allowDeselect: true,
-    }
-})
+
+
 
 //const recipesReq = async () =>{
 //    const response = await axios.get(
