@@ -1,0 +1,56 @@
+.backdrop-modal-see {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal_reciepe {
+  position: absolute;
+  width: 335px;
+  min-height: 700px;
+  /* padding: 40px; */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  .backdrop.is-hidden & {
+    transform: translate(50%, 0) scale(0);
+  }
+}
+
+.modal__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid transparent;
+  /* border-radius: 50%; */
+  /* @extend %align-list; */
+  justify-content: center;
+  background: transparent;
+  padding: 6px;
+  cursor: pointer;
+}
+
+
+
+.rating-time{
+  display: flex;
+}
+
+.recipe-ing{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
