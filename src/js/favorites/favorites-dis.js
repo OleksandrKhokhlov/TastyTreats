@@ -1,5 +1,5 @@
 import refs from './refs';
-// import { getFromLocalStorage } from '../favorite/localStorageUtils';
+// import { getFromLocalStorage } from '.';
 import { countPage, groupArrayIntoChunks } from './counter';
 import { pagination } from '../pagin';
 import { renderingFavRec } from './render-favorites';

@@ -3,45 +3,91 @@
   pointer-events: none;
 } */
 
-@media screen and (max-width: 374px) {
-  .favorites-hero {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 35px;
-  }
+.favorites-hero {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 35px;
+}
 
-  .favorites-hero-img {
+.favorites-hero-img {
+  width: 310px;
+  height: 516px;
+}
+
+.favorites-error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.favorites-error-icon {
+  margin: auto;
+
+  margin-bottom: 24px;
+}
+
+.favorites-error-text {
+  margin: auto;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.favorites-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.favorites-btn {
+  border-radius: 15px;
+  font-size: 14px;
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
+  padding: 14px 18px;
+  background-color: var(--bcg-body-color);
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  outline: none;
+  cursor: pointer;
+}
+
+.favorites-btn.is-active {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+
+  transition: color var(--transition-dur-and-func),
+    background-color var(--transition-dur-and-func),
+    border-color var(--transition-dur-and-func);
+}
+
+.favorites-btn:is(:hover, :focus) {
+  background-color: var(--accent-color);
+  color: var(--sec-text-color);
+  border-color: var(--accent-color);
+}
+
+@media screen and (max-width: 767px) {
+  .favorites-error {
+    position: absolute;
     width: 310px;
-    height: 516px;
+    margin-left: 0;
+    margin-right: 0;
+    top: 300px;
+    z-index: 99;
   }
 }
 
 @media screen and (min-width: 375px) {
   .favorites-hero {
-    display: flex;
-    justify-content: center;
     padding-bottom: 40px;
   }
 
   .favorites-hero-img {
     width: 335px;
-    height: 516px;
-  }
-
-  .favorites-error {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .favorites-error-icon {
-    margin: auto;
-
-    margin-bottom: 24px;
-  }
-  .favorites-error-text {
-    margin: auto;
-    text-align: center;
-    font-size: 14px;
   }
 }
 
@@ -60,22 +106,25 @@
     width: 97px;
     height: 83px;
   }
+
   .favorites-error-text {
     width: 481px;
     font-size: 16px;
+  }
+
+  .favorites-categories {
+    gap: 15px;
+    margin-bottom: 32px;
+  }
+
+  .favorites-btn {
+    font-size: 16px;
+    line-height: 1.25;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .favorites-hero-img {
-    width: 1080px;
-  }
-
-  .favorites-error-icon {
-    margin-bottom: 32px;
-  }
-  .favorites-error-text {
-    width: 481px;
-    font-size: 16px;
+    width: 996px;
   }
 }

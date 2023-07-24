@@ -1,13 +1,13 @@
 import { testyTreatsAPI } from '../tasty-treatsAPI';
 import refs from './refs';
-// import { getFromLocalStorage } from '../favorite/localStorageUtils';
+// import { getFromLocalStorage } from '.';
 import { handleCategoryFilter } from './categotyFilter';
 import { displayFavorites } from './favorites-dis';
 import { updateCategoryList, renderCategories } from './updateCategory.js';
 
 const recipeApiSeriсe = new testyTreatsAPI();
 
-recipeApiSeriсe.getRecipe().then(response => {
+recipeApiSeriсe.loadRecipes().then(response => {
   const arr = response.results;
 
   const FAV_DATA = 'favorites-data';
