@@ -1,5 +1,6 @@
 @import '/../node_modules/swiper/swiper.css';
 @import '/../node_modules/swiper/modules/pagination.css';
+@import '/../node_modules/swiper/modules/autoplay.css';
 
 .hero-container * {
     margin: 0;
@@ -76,7 +77,7 @@
     line-height: 1.5;
 }
 
-/*------------------------------ slider--------------------------------------------- */
+/*------------------------------ slider --------------------------------------------- */
 .swiper-slide .img {
     max-width: 100%;
     width: 100%;
@@ -155,8 +156,6 @@
         height: 442px;
     }
 }
-
-
 
 @media screen and (min-width: 1200px) {
     .hero-div {
