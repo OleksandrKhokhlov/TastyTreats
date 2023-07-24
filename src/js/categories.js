@@ -1,7 +1,8 @@
 import {Notify} from "notiflix";
 import {testyTreatsAPI} from "./tasty-treatsAPI.js";
-
+import {addRecipes, loadMoreDetails} from "./recipes.js";
 let lastClickedMenuItem = null;
+let chosenCategory = null
 async function fetchRecipesCategories() {
   const testy = new testyTreatsAPI();
   try {
@@ -13,21 +14,26 @@ async function fetchRecipesCategories() {
   }
 }
 async function fetchRecipeDetails(recipeName) {
+  getRecipesButton.classList.remove('btn-active')
   const testyDetails = new testyTreatsAPI();
   try {
+    chosenCategory = recipeName
     testyDetails.category = recipeName
     const response = await testyDetails.loadRecipes();
-    return await response.data;
+    addRecipes(response.data['results'])
+    // return await response.data;
   } catch (error) {
     Notify.failure('Error fetching recipe details');
     return null;
   }
 }
 async function fetchAllRecipes() {
+  getRecipesButton.classList.add('btn-active')
   const testy = new testyTreatsAPI();
   try {
       const response = await testy.loadRecipes();
-      return await response.data;
+      addRecipes(response.data['results'])
+      // return await response.data;
   } catch (error) {
     Notify.failure('Error fetching recipe details');
     return null;
@@ -85,7 +91,6 @@ scrollableMenu.addEventListener('click', async (event) => {
     lastClickedMenuItem = menuItem
     const recipeDetails = await fetchRecipeDetails(recipeName);
     if (recipeDetails) {
-      // тут буде заповнення 1 сторінки діву з картками рецептів
       return recipeDetails
     }
   } else {
@@ -94,4 +99,6 @@ scrollableMenu.addEventListener('click', async (event) => {
 });
 
 getRecipesButton.addEventListener('click', getAllRecipeDetails);
+fetchAllRecipes()
 createScrollableMenu()
+loadMoreDetails(chosenCategory)

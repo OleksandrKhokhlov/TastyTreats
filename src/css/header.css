@@ -11,12 +11,7 @@ a {
 .header-tablet {
   display: none;
 }
-.container {
-  max-width: 375px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 0 auto;
-}
+
 .nav-link {
   color: var(--popular-text-desc-color);
   font-family: Inter;
@@ -25,6 +20,7 @@ a {
 }
 .header {
   padding-top: 25px;
+  padding-bottom: 85px;
 }
 .logo-header span {
   color: var(--accent-color);
@@ -205,9 +201,9 @@ a {
   .header-mobile {
     display: none;
   }
-  .container {
-    max-width: 768px;
-    padding: 0 32px;
+  .header {
+    padding-top: 32px;
+    padding-bottom: 95px;
   }
   .header-tablet {
     display: flex;
@@ -240,9 +236,9 @@ a {
 }
 
 @media screen and (min-width: 1200px) {
-  .container {
-    max-width: 1200px;
-    padding: 0 100px;
+  .header {
+    padding-top: 45px;
+    padding-bottom: 94px;
   }
   .actions {
     gap: 25px;

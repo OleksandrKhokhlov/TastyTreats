@@ -2,6 +2,7 @@
 import axios from 'axios';
 import Swiper from 'swiper';
 import { Pagination } from 'swiper/modules';
+import 'swiper/css';
 
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/events';
 const ref = document.querySelector('#swiper-wrapper');
@@ -65,10 +66,9 @@ const swiper = new Swiper('.swiper', {
     el: '.swiper-pagination',
     bulletClass: 'swiper-pagination-bullet',
     bulletActiveClass: 'swiper-pagination-bullet-active',
-    dynamicBullets: true,
-    dynamicMainBullets: 3,
   },
   spaceBetween: 8,
   loop: true,
   slidesPerView: 3,
+  slidesPerGroup: 3,
 });

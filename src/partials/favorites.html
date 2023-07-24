@@ -1,0 +1,64 @@
+<section>
+  <div class="favorites-hero container">
+    <picture class="favorites-hero-img">
+      <source
+        srcset="
+          ./img/favorites/desktop-favorites-1x.jpg 1x,
+          ./img/favorites/desktop-favorites-2x.jpg 2x
+        "
+        media="(min-width:1200px)"
+      />
+      <source
+        srcset="
+          ./img/favorites/tablet-favorites-1x.jpg 1x,
+          ./img/favorites/tablet-favorites-2x.jpg 2x
+        "
+        media="(min-width:768px)"
+      />
+      <source
+        srcset="
+          ./img/favorites/mobile-favorites-1x.jpg 1x,
+          ./img/favorites/mobile-favorites-2x.jpg 2x
+        "
+        media="(min-width:375px)"
+      />
+      <source
+        srcset="
+          ./img/favorites/mobile-favorites-1x.jpg 1x,
+          ./img/favorites/mobile-favorites-2x.jpg 2x
+        "
+        media="(max-width:374px)"
+      />
+      <img
+        class="favorites-hero-img"
+        src="./img/favorites/mobile-favorites-1x.jpg"
+        alt="card-favorites"
+      />
+    </picture>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <h2 class="visually-hidden">Favorites</h2>
+
+    <div class="favorites-categories">
+      <button class="favorites-btn is-active" name="main-cat-btn">
+        All categories
+      </button>
+    </div>
+
+    <ul class="favorites-list"></ul>
+    <div id="pagination" class="tui-pagination"></div>
+
+    <div class="favorites-error is-hidden">
+      <svg class="favorites-error-icon" width="68" height="58">
+        <use href="./images/sprite.svg#icon-chefs-hat"></use>
+      </svg>
+      <p class="favorites-error-text">
+        It appears that you haven't added any recipes to your favorites yet. To
+        get started, you can add recipes that you like to your favorites for
+        easier access in the future.
+      </p>
+    </div>
+  </div>
+</section>
