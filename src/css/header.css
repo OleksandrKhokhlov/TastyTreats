@@ -202,6 +202,7 @@ a {
     display: none;
   }
   .header {
+    padding-top: 32px;
     padding-bottom: 95px;
   }
   .header-tablet {
@@ -236,6 +237,7 @@ a {
 
 @media screen and (min-width: 1200px) {
   .header {
+    padding-top: 45px;
     padding-bottom: 94px;
   }
   .actions {
