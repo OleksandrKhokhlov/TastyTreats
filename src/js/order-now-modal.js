@@ -1,4 +1,4 @@
-const refs = {
+const refss = {
   openModalBtns: document.querySelectorAll('.shop-btn'),
   closeModalBtn: document.querySelector('.order-modal-close-btn'),
   backdrop: document.querySelector('.backdrop-order'),
@@ -7,17 +7,17 @@ const refs = {
   input: document.querySelectorAll('.input-js'),
 };
 
-refs.openModalBtns.forEach(btn => {
+refss.openModalBtns.forEach(btn => {
   btn.addEventListener('click', openModalOpen);
 });
 
-refs.closeModalBtn.addEventListener('click', closeModalClose);
-refs.backdrop.addEventListener('click', clickBackdropClick);
+refss.closeModalBtn.addEventListener('click', closeModalClose);
+refss.backdrop.addEventListener('click', clickBackdropClick);
 
-refs.forma.addEventListener('submit', function (e) {
+refss.forma.addEventListener('submit', function (e) {
   e.preventDefault();
   if (validateFormAndShowAlert()) {
-    const { name, tel, email, comment } = refs.forma.elements;
+    const { name, tel, email, comment } = refss.forma.elements;
     const result = {
       name: name.value,
       tel: tel.value,
@@ -26,7 +26,7 @@ refs.forma.addEventListener('submit', function (e) {
     };
     console.log(result);
 
-    refs.input.forEach(input => {
+    refss.input.forEach(input => {
       input.value = '';
       input.classList.remove('valid', 'invalid');
     });
@@ -66,15 +66,15 @@ function validateFormAndShowAlert() {
 function openModalOpen() {
   window.addEventListener('keydown', onEscPress);
   document.body.classList.add('overflowHidden');
-  refs.backdrop.classList.add('active');
-  refs.modal.classList.add('active');
+  refss.backdrop.classList.add('active');
+  refss.modal.classList.add('active');
 }
 
 function closeModalClose() {
   document.body.classList.remove('overflowHidden');
   window.removeEventListener('keydown', onEscPress);
-  refs.backdrop.classList.remove('active');
-  refs.modal.classList.remove('active');
+  refss.backdrop.classList.remove('active');
+  refss.modal.classList.remove('active');
 }
 
 function clickBackdropClick(e) {
