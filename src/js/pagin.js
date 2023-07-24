@@ -27,4 +27,4 @@ const options = {
   if (windowWidth > 760) {
     options.visiblePages = 3;
   }
-  const pagination = new Pagination('pagination', options);
+  export const pagination = new Pagination('pagination', options);
