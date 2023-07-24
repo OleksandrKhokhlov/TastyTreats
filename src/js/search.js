@@ -1,10 +1,8 @@
-import axios from "axios"
 import SlimSelect from 'slim-select'
 import _ from "lodash"
 import { testyTreatsAPI } from "./tasty-treatsAPI";
 
 
-const formEl = document.querySelector('.search-filters');
 
 const searchSelectEl = document.querySelector('#search-key');
 const timeSelectEl = document.querySelector('#time-key')
