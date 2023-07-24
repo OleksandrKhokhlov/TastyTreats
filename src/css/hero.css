@@ -87,7 +87,6 @@
 
 .swiper-wrapper {
     height: 280px;
-    padding-bottom: 20px;
 }
 
 .swiper-slide {
@@ -132,4 +131,33 @@
         font-size: 16px;
         line-height: 1.5;
     }
+
+    .swiper {
+        width: 736px;
+        height: 468px;
+    }
+
+    .swiper-wrapper {
+        height: 442px;
+    }
+}
+
+
+
+@media screen and (min-width: 1200px) {
+    .hero-div {
+        display: flex;
+        align-items: center;
+    }
+    
+    .hero-title, .hero-description {
+        text-align: left;
+        width: 446px;
+    }
+
+    .swiper {
+            width: 702px;
+        }
+    
+
 }
