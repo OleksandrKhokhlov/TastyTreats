@@ -1,33 +1,66 @@
 const refs = {
-  openModalBtn: document.querySelector('.shop-btn'),
-  //   openModalBtnHero: document.querySelector('.btn-hero'),
+  openModalBtns: document.querySelectorAll('.shop-btn'),
   closeModalBtn: document.querySelector('.order-modal-close-btn'),
   backdrop: document.querySelector('.backdrop-order'),
   modal: document.querySelector('.modal-order'),
   forma: document.querySelector('.modal-form-order'),
+  input: document.querySelectorAll('.input-js'),
 };
-try {
-  refs.openModalBtnHero.addEventListener('click', openModalOpen);
-} catch (error) {}
 
-refs.openModalBtn.addEventListener('click', openModalOpen);
+refs.openModalBtns.forEach(btn => {
+  btn.addEventListener('click', openModalOpen);
+});
+
 refs.closeModalBtn.addEventListener('click', closeModalClose);
 refs.backdrop.addEventListener('click', clickBackdropClick);
 
-refs.forma.addEventListener('submit', sendOrder);
-function sendOrder(e) {
+refs.forma.addEventListener('submit', function (e) {
   e.preventDefault();
-  const { name, tel, email, comment } = e.currentTarget;
-  const result = {
-    name: name.value,
-    tel: tel.value,
-    email: email.value,
-    comment: comment.value,
-  };
+  if (validateFormAndShowAlert()) {
+    const { name, tel, email, comment } = refs.forma.elements;
+    const result = {
+      name: name.value,
+      tel: tel.value,
+      email: email.value,
+      comment: comment.value,
+    };
+    console.log(result);
 
-  console.log(result);
-  e.currentTarget.reset();
-  closeModalClose();
+    refs.input.forEach(input => {
+      input.value = '';
+      input.classList.remove('valid', 'invalid');
+    });
+
+    closeModalClose();
+  }
+});
+
+function validateInput(input) {
+  if (input.checkValidity()) {
+    input.classList.add('valid');
+    input.classList.remove('invalid');
+  } else {
+    input.classList.remove('valid');
+    input.classList.add('invalid');
+  }
+}
+
+function validateFormAndShowAlert() {
+  const inputFields = document.querySelectorAll('.input-js');
+  let isFormValid = true;
+
+  inputFields.forEach(input => {
+    validateInput(input);
+    if (!input.checkValidity()) {
+      isFormValid = false;
+    }
+  });
+
+  if (!isFormValid) {
+    alert('Please fill in all the fields correctly.');
+  }
+
+  return isFormValid;
 }
 
 function openModalOpen() {
@@ -40,7 +73,6 @@ function openModalOpen() {
 function closeModalClose() {
   document.body.classList.remove('overflowHidden');
   window.removeEventListener('keydown', onEscPress);
-  document.body.classList.remove('overflowHidden');
   refs.backdrop.classList.remove('active');
   refs.modal.classList.remove('active');
 }
