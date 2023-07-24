@@ -1,5 +1,5 @@
-@import '../../node_modules/swiper/swiper.css';
-@import '../../node_modules/swiper/modules/pagination.css';
+@import '/../node_modules/swiper/swiper.css';
+@import '/../node_modules/swiper/modules/pagination.css';
 
 .hero-container * {
     margin: 0;
@@ -173,6 +173,4 @@
     .swiper {
             width: 702px;
         }
-    
-
 }
