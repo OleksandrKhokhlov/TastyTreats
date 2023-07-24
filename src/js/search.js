@@ -1,6 +1,7 @@
 import axios from "axios"
 import SlimSelect from 'slim-select'
 import _ from "lodash"
+import { testyTreatsAPI } from "./tasty-treatsAPI";
 
 
 const formEl = document.querySelector('.search-filters');
@@ -11,35 +12,24 @@ const areaSelectElement = document.querySelector('#area-key');
 const ingredientsSelectElement = document.querySelector('#ingredients-key');
 const resetFiltersEl = document.querySelector('.filter-reset')
 
+const tastyTreatsAPI = new testyTreatsAPI()
+
 let areaSlimSelect = undefined
 let timeSlimSelect = undefined
 let ingredientSlimSelect = undefined
 
 
-const getAreaKeys = async () =>{
-    const response = await axios.get('https://tasty-treats-backend.p.goit.global/api/areas')
-    
-    const result = await response.data
-    return result
-}
-
-const getIngredientsKeys = async () =>{
-    const response = await axios.get('https://tasty-treats-backend.p.goit.global/api/ingredients')
-    
-    const result = await response.data
-    return result
-}
-
-getAreaKeys()
-.then((results) => {
-    for(let result in results){
+tastyTreatsAPI.loadAreas()
+.then((res) => res.data)
+.then((res) => {
+    for(let result in res){
         areaSelectElement.insertAdjacentHTML('beforeend',
         `
-            <option value="${results[result].name}">${results[result].name}</option>
+            <option value="${res[result].name}">${res[result].name}</option>
         `)
     }
 
-     areaSlimSelect = new SlimSelect({
+    areaSlimSelect = new SlimSelect({
         select : areaSelectElement,
         settings : {
             showSearch : false,
@@ -50,16 +40,18 @@ getAreaKeys()
     })
 })
 
-getIngredientsKeys()
-.then((results) => {
-    for(let result in results){
+
+tastyTreatsAPI.loadIngredients()
+.then(res => res.data)
+.then((res) => {
+    for(let result in res){
         ingredientsSelectElement.insertAdjacentHTML('beforeend',
         `
-            <option value="${results[result].name}">${results[result].name}</option>
+            <option value="${res[result].name}">${res[result].name}</option>
         `)
     }
 
-     ingredientSlimSelect =new SlimSelect({
+    ingredientSlimSelect =new SlimSelect({
         select : ingredientsSelectElement,
         settings : {
             showSearch : false,
@@ -68,7 +60,6 @@ getIngredientsKeys()
             maxValuesShown: 6,
         }
     })
-
 })
 
 
@@ -87,16 +78,36 @@ timeSlimSelect = new SlimSelect({
 
 
 const recipesReq = async () =>{
-    const response = await axios.get(
-        `https://tasty-treats-backend.p.goit.global/api/recipes?
-        title=${searchSelectEl.value}&area=${areaSelectElement.value}
-        &time=${timeSelectEl.value}&ingredient=${ingredientsSelectElement.value}
-       &page=1&limit=6`)
-   
-   console.log("RESULT: " + response)
+    if (searchSelectEl.value.trim() != ''){
+        tastyTreatsAPI.title = searchSelectEl.value
+    }
+    if (timeSelectEl.value != ''){
+        tastyTreatsAPI.time = timeSelectEl.value
+    }
+    if (areaSelectElement.value != ''){
+        tastyTreatsAPI.area = areaSelectElement.value
+    }
+    if(ingredientsSelectElement.value != ''){
+        tastyTreatsAPI.ingredient = ingredientsSelectElement.value
+    }
+
+    const res = await tastyTreatsAPI.loadRecipes()
+    return res.data
 }
 
-formEl.addEventListener('change', _.debounce(() => {
+searchSelectEl.addEventListener('change', _.debounce(() => {
+    recipesReq()
+}, 300, {leading : false, trailing : true}))
+
+areaSelectElement.addEventListener('change', _.debounce(() => {
+    recipesReq()
+}, 300, {leading : false, trailing : true}))
+
+ingredientsSelectElement.addEventListener('change', _.debounce(() => {
+    recipesReq()
+}, 300, {leading : false, trailing : true}))
+
+timeSelectEl.addEventListener('change', _.debounce(() => {
     recipesReq()
 }, 300, {leading : false, trailing : true}))
 
