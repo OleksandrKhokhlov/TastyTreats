@@ -1,0 +1,81 @@
+/* .is-hidden {
+  opacity: 0;
+  pointer-events: none;
+} */
+
+@media screen and (max-width: 374px) {
+  .favorites-hero {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 35px;
+  }
+
+  .favorites-hero-img {
+    width: 310px;
+    height: 516px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .favorites-hero {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+  }
+
+  .favorites-hero-img {
+    width: 335px;
+    height: 516px;
+  }
+
+  .favorites-error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .favorites-error-icon {
+    margin: auto;
+
+    margin-bottom: 24px;
+  }
+  .favorites-error-text {
+    margin: auto;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .favorites-hero {
+    padding-bottom: 64px;
+  }
+
+  .favorites-hero-img {
+    width: 704px;
+    height: 356px;
+  }
+
+  .favorites-error-icon {
+    margin-bottom: 32px;
+    width: 97px;
+    height: 83px;
+  }
+  .favorites-error-text {
+    width: 481px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .favorites-hero-img {
+    width: 1080px;
+  }
+
+  .favorites-error-icon {
+    margin-bottom: 32px;
+  }
+  .favorites-error-text {
+    width: 481px;
+    font-size: 16px;
+  }
+}
