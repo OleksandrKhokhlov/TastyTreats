@@ -1,51 +1,39 @@
-import axios from "axios";
 import {Notify} from "notiflix";
-
+import {testyTreatsAPI} from "./tasty-treatsAPI.js";
+import {addRecipes, loadMoreDetails} from "./recipes.js";
 let lastClickedMenuItem = null;
+let chosenCategory = null
 async function fetchRecipesCategories() {
+  const testy = new testyTreatsAPI();
   try {
-    const response = await axios.get('https://tasty-treats-backend.p.goit.global/api/categories');
+    const response = await testy.loadCategories();
     return await response.data;
   } catch (error) {
     Notify.failure('Error fetching recipes');
     return [];
   }
 }
-async function fetchRecipeDetails(recipeName, page=1) {
-  const windowWidth = screen.width;
+async function fetchRecipeDetails(recipeName) {
+  getRecipesButton.classList.remove('btn-active')
+  const testyDetails = new testyTreatsAPI();
   try {
-    if (windowWidth <= 320) {
-      const response = await axios.get(`https://tasty-treats-backend.p.goit.global/api/recipes?category=${recipeName}&page=${page}&limit=6`);
-      return await response.data;
-    }
-    else if (windowWidth <= 768) {
-      const response = await axios.get(`https://tasty-treats-backend.p.goit.global/api/recipes?category=${recipeName}&page=${page}&limit=8`);
-      return await response.data;
-    }
-    else {
-      const response = await axios.get(`https://tasty-treats-backend.p.goit.global/api/recipes?category=${recipeName}&page=${page}&limit=9`);
-      return await response.data;
-    }
+    chosenCategory = recipeName
+    testyDetails.category = recipeName
+    const response = await testyDetails.loadRecipes();
+    addRecipes(response.data['results'])
+    // return await response.data;
   } catch (error) {
     Notify.failure('Error fetching recipe details');
     return null;
   }
 }
-async function fetchAllRecipes(page = 1) {
-  const windowWidth = screen.width;
+async function fetchAllRecipes() {
+  getRecipesButton.classList.add('btn-active')
+  const testy = new testyTreatsAPI();
   try {
-    if (windowWidth <= 320) {
-      const response = await axios.get(`https://tasty-treats-backend.p.goit.global/api/recipes?page=${page}&limit=6`);
-      return await response.data;
-    }
-    if (windowWidth <= 768) {
-      const response = await axios.get(`https://tasty-treats-backend.p.goit.global/api/recipes?page=${page}&limit=8`);
-      return await response.data;
-    }
-    else {
-      const response = await axios.get(`https://tasty-treats-backend.p.goit.global/api/recipes?page=${page}&limit=9`);
-      return await response.data;
-    }
+      const response = await testy.loadRecipes();
+      addRecipes(response.data['results'])
+      // return await response.data;
   } catch (error) {
     Notify.failure('Error fetching recipe details');
     return null;
@@ -60,27 +48,21 @@ async function createScrollableMenu() {
     return;
   }
 
-  recipes.forEach((recipe) => {
+  const menuItems = recipes.map((recipe) => {
     const menuItem = document.createElement('div');
     menuItem.classList.add('menu-item');
     menuItem.textContent = recipe.name;
-    scrollableMenu.appendChild(menuItem);
+    return menuItem;
   });
+
+  scrollableMenu.append(...menuItems);
 }
 async function getAllRecipeDetails() {
   if (lastClickedMenuItem) {
-    lastClickedMenuItem.style.color = 'rgba(5, 5, 5, 0.3)';
+    lastClickedMenuItem.classList.remove('active_btn');
   }
-  const recipes = await fetchAllRecipes();
-
-  if (recipes.length === 0) {
-    Notify.failure('No recipes available');
-    return;
-  }
-
-  else {
-    return recipes
-  }
+  // тут буде заповнення 1 сторінки діву з картками рецептів
+  return await fetchAllRecipes();
 }
 
 const getRecipesButton = document.createElement('button');
@@ -102,10 +84,10 @@ scrollableMenu.addEventListener('click', async (event) => {
   const menuItem = event.target;
   if (menuItem.classList.contains('menu-item')) {
     if (lastClickedMenuItem) {
-      lastClickedMenuItem.style.color = 'rgba(5, 5, 5, 0.3)';
+      lastClickedMenuItem.classList.remove('active_btn')
     }
     const recipeName = menuItem.textContent;
-    menuItem.style.color = '#9BB537'
+    menuItem.classList.add('active_btn')
     lastClickedMenuItem = menuItem
     const recipeDetails = await fetchRecipeDetails(recipeName);
     if (recipeDetails) {
@@ -117,4 +99,6 @@ scrollableMenu.addEventListener('click', async (event) => {
 });
 
 getRecipesButton.addEventListener('click', getAllRecipeDetails);
+fetchAllRecipes()
 createScrollableMenu()
+loadMoreDetails(chosenCategory)

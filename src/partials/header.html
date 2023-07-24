@@ -1,0 +1,83 @@
+<header class="header" id="header">
+  <div class="container">
+    <!--------------MOBILE HEADER--------------------->
+    <div class="header-sup header-mobile">
+      <a href="#" class="logo-header"><span>tasty</span>treads.</a>
+      <div class="buttons-container">
+        <button class="shop-btn">
+          <svg width="24" height="24">
+            <use href="../images/sprite.svg#icon-cart"></use>
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="open-hamburger js-open-menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg width="32" height="32">
+            <use href="../images/sprite.svg#icon-menu-burger"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="hamburger-menu js-menu-container">
+      <button class="modal-button js-close-menu" id="mobile-menu" type="button">
+        <svg width="32" height="32">
+          <use href="../images/sprite.svg#icon-modal-close"></use>
+        </svg>
+      </button>
+      <nav class="header-nav">
+        <ul class="list-header">
+          <li class="nav-list">
+            <a href="/src/index.html" class="item-nav">Home</a>
+          </li>
+          <li class="nav-list">
+            <a href="/src/favorites.html" class="item-nav">Favorites</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="down-content">
+        <div class="theme-switch-container for-mobile">
+          <input
+            type="checkbox"
+            id="themeSwitchMobile"
+            class="theme-switch for-mobile"
+          />
+          <label for="themeSwitchMobile" class="slider"></label>
+        </div>
+      </div>
+    </div>
+    <!---------TABLET-------->
+    <div class="header-tablet">
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/src/index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="/src/favorites.html" class="nav-link">Favorites</a>
+          </li>
+        </ul>
+        <a class="logo-header" href="./header.html"
+          ><span>tasty</span>treads.</a
+        >
+        <div class="actions">
+          <button class="shop-btn">
+            <svg width="24" height="24">
+              <use href="../images/sprite.svg#icon-cart"></use>
+            </svg>
+          </button>
+          <div class="theme-switch-container for-tablet-pc">
+            <input
+              type="checkbox"
+              id="themeSwitchTablet"
+              class="theme-switch for-tablet-pc"
+            />
+            <label for="themeSwitchTablet" class="slider"></label>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
