@@ -1,4 +1,4 @@
-// import { getFromLocalStorage } from '../favorite/localStorageUtils';
+// import { getFromLocalStorage } from '.';
 import refs from './refs';
 
 export function renderCategories(category) {
