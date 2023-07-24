@@ -16,9 +16,9 @@ const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/';
 // For example modal Rating
 
 // const data = {
-// "rate": 5,
-//   "email": "test@gmail.com"
-// }
+//   rate: 5,
+//   email: 'testtst@gmail.com',
+// };
 
 export class testyTreatsAPI {
   page = 1;
@@ -88,13 +88,20 @@ export class testyTreatsAPI {
 
   async patchRate(data) {
     try {
-      const resp = await axios.patch(`${BASE_URL}recipes/${this.id}/rating`, data);
-      if (resp.status !== 201) {
+      const resp = await axios.patch(
+        `${BASE_URL}recipes/${this.id}/rating`,
+        data
+      );
+      console.log(resp);
+      if (resp.status !== 200) {
         throw new Error();
       }
       Report.success('Rating updated', 'Thanks');
     } catch (error) {
-      Report.failure('Something went wrong. Try later...', 'Sorry');
+      if (error.request.status !== 409) {
+        Report.failure('Something went wrong. Try later...', 'Sorry');
+      }
+      Report.info('This letter already exists.', 'Sorry');
     }
   }
 }
