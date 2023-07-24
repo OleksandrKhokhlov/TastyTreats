@@ -4,22 +4,6 @@ import axios from 'axios';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/';
 
-// For example modal Order
-
-// const data = {
-//   name: 'Ivetta',
-//   phone: '+380000000000',
-//   email: 'test@gmail.com',
-//   comment: 'So delicious',
-// };
-
-// For example modal Rating
-
-// const data = {
-//   rate: 5,
-//   email: 'testtst@gmail.com',
-// };
-
 export class testyTreatsAPI {
   page = 1;
   limit = 6;
