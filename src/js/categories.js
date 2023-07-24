@@ -1,8 +1,8 @@
 import {Notify} from "notiflix";
 import {testyTreatsAPI} from "./tasty-treatsAPI.js";
-import {addRecipes, loadMoreDetails} from "./recipes.js";
+import {addRecipes} from "./recipes.js";
 let lastClickedMenuItem = null;
-let chosenCategory = null
+
 async function fetchRecipesCategories() {
   const testy = new testyTreatsAPI();
   try {
@@ -17,7 +17,6 @@ async function fetchRecipeDetails(recipeName) {
   getRecipesButton.classList.remove('btn-active')
   const testyDetails = new testyTreatsAPI();
   try {
-    chosenCategory = recipeName
     testyDetails.category = recipeName
     const response = await testyDetails.loadRecipes();
     addRecipes(response.data['results'])
@@ -101,4 +100,4 @@ scrollableMenu.addEventListener('click', async (event) => {
 getRecipesButton.addEventListener('click', getAllRecipeDetails);
 fetchAllRecipes()
 createScrollableMenu()
-loadMoreDetails(chosenCategory)
+

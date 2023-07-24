@@ -10,26 +10,15 @@ export function addRecipes(recipes) {
   }
   recipesEl.insertAdjacentHTML('beforeend', renderCards(recipes));
 }
-export function loadMore() {
+export function loadMoreRecipes() {
   pagination.on('afterMove', async eventData => {
+    const categoryFilter = document.querySelector('.active_btn')
     const testy = new testyTreatsAPI();
     try {
       testy.page = eventData.page;
-      const response = await testy.loadRecipes();
-      addRecipes(response.data.results);
-      return await response.data;
-    }
-    catch(error) {
-      console.log(error);
-    }
-  });
-}
-export function loadMoreDetails(name) {
-  pagination.on('afterMove', async eventData => {
-    const testy = new testyTreatsAPI();
-    try {
-      testy.page = eventData.page;
-      testy.category = name;
+      if (categoryFilter !== null){
+        testy.category = categoryFilter.textContent;
+      }
       const response = await testy.loadRecipes();
       addRecipes(response.data.results);
       return await response.data;
@@ -44,3 +33,5 @@ function destroyRecipesBlock() {
     recipe.remove();
   });
 }
+
+loadMoreRecipes()
