@@ -66,10 +66,9 @@ const swiper = new Swiper('.swiper', {
     el: '.swiper-pagination',
     bulletClass: 'swiper-pagination-bullet',
     bulletActiveClass: 'swiper-pagination-bullet-active',
-    dynamicBullets: true,
-    dynamicMainBullets: 3,
   },
   spaceBetween: 8,
   loop: true,
   slidesPerView: 3,
+  slidesPerGroup: 3,
 });
