@@ -78,24 +78,30 @@ timeSlimSelect = new SlimSelect({
 
 
 const recipesReq = async () =>{
-    if (searchSelectEl.value.trim() != ''){
-        tastyTreatsAPI.title = searchSelectEl.value
-    }
-    if (timeSelectEl.value != ''){
+        tastyTreatsAPI.title = searchSelectEl.value.trim()
+    
         tastyTreatsAPI.time = timeSelectEl.value
-    }
-    if (areaSelectElement.value != ''){
+    
         tastyTreatsAPI.area = areaSelectElement.value
-    }
-    if(ingredientsSelectElement.value != ''){
+    
         tastyTreatsAPI.ingredient = ingredientsSelectElement.value
-    }
+    
 
     const res = await tastyTreatsAPI.loadRecipes()
     return res.data
 }
 
+searchSelectEl.addEventListener('input', () =>{
+    if(searchSelectEl.value.trim() != ''){
+        document.querySelector('.icon-search').style.fill = '#9BB537'
+    }
+    else{
+        document.querySelector('.icon-search').style.fill = '#05050580'
+    }
+})
+
 searchSelectEl.addEventListener('change', _.debounce(() => {
+    
     recipesReq()
 }, 300, {leading : false, trailing : true}))
 
@@ -112,6 +118,7 @@ timeSelectEl.addEventListener('change', _.debounce(() => {
 }, 300, {leading : false, trailing : true}))
 
 resetFiltersEl.addEventListener('click', () =>{
+    document.querySelector('.icon-search').style.fill = '#05050580'
     areaSlimSelect.setSelected('')
     ingredientSlimSelect.setSelected('')
     timeSlimSelect.setSelected('')

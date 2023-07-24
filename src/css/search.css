@@ -102,22 +102,30 @@ label{
 
 .search-label{
     width: 100%;
+    position: relative;
 }
 
 #search-key{
     width: 100%;
     margin-bottom: 14px;
-    padding: 14px 0 14px 18px;
+    padding: 14px 0 14px 44px;
 
     border: 1px solid #05050533;
 
     border-radius: 15px;
+}
 
+.icon-search{
+    width: 18px;
+    height: 18px;
+    fill: #05050580;
+    position: absolute;
+    top: 34px;
+    left: 18px;
 }
 
 #search-key::placeholder{
     color: #05050580;
-    color: rgba(5, 5, 5, 0.50);
     font-family: Inter;
     font-size: 12px;
     font-weight: 500;
@@ -151,7 +159,7 @@ label{
 }
 
 
-.filter-reset svg{
+.reset-icon{
     height: 16px;
     width: 16px;
     fill: var(--accent-color);
