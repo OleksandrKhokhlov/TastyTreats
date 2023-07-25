@@ -55,7 +55,7 @@
 .order-icon-close {
   display: inline-block;
   stroke-width: 0;
-  stroke: var(--primary-text-CH-color);
+  stroke: var(--pr-text-color);
 }
 
 .order-icon-close:hover,
@@ -75,7 +75,7 @@
   color: var(--pr-text-DT-color);
   border-radius: 15px;
   cursor: pointer;
-  transition: color var(--transition-set);
+  transition: color var(--transition-dur-and-func);
 }
 
 .order-btn:hover,
@@ -126,24 +126,15 @@
   width: 100%;
   outline: none;
   transition: border-color var(--transition-dur-and-func);
+  color: var(--bcg-body-DT-color);
 }
 .input-field-textarea {
   resize: vertical;
 }
-.input-field::placeholder {
-  color: rgba(5, 5, 5, 0.5);
-}
+
 .input-field:focus,
 .input-field:focus-visible {
   border-color: var(--pr-text-color);
-}
-
-.input-js.invalid {
-  border: 2px solid red;
-}
-
-.input-js.valid {
-  border: 2px solid green;
 }
 
 @media screen and (min-width: 768px) {
