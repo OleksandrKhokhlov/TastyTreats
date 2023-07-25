@@ -2,7 +2,7 @@
   <div id="modal-order" class="modal-order">
     <button type="button" class="order-modal-close-btn">
       <svg class="order-icon-close" width="20" height="20">
-        <use href="../images/sprite.svg#icon-modal-close"></use>
+        <use href="/images/sprite.svg#icon-modal-close"></use>
       </svg>
     </button>
     <div class="wrap-recipe">
@@ -17,7 +17,6 @@
               name="name"
               required
               pattern="[A-Za-z]{1,32}"
-              placeholder="Your name"
             />
             <span class="order-input-label">Name</span>
           </label>
@@ -29,7 +28,6 @@
               name="tel"
               required
               pattern="[0-9]{10}"
-              placeholder="Your telephone "
             />
             <span class="order-input-label">Phone number</span>
           </label>
@@ -41,9 +39,8 @@
               name="email"
               required
               pattern="[^@\s]+@[^@\s]+"
-              placeholder="Your email "
             />
-            <span class="order-input-label">Phone number</span>
+            <span class="order-input-label">Email</span>
           </label>
           <label class="input-box">
             <textarea
