@@ -1,6 +1,6 @@
 import { testyTreatsAPI } from './tasty-treatsAPI';
 
-const tasty = new testyTreatsAPI();
+const testy = new testyTreatsAPI();
 
 const refs = {
   openModalBtns: document.querySelectorAll('.shop-btn'),
@@ -20,35 +20,27 @@ refs.backdrop.addEventListener('click', clickBackdropClick);
 
 refs.forma.addEventListener('submit', function (e) {
   e.preventDefault();
-  if (validateFormAndShowAlert()) {
-    const { name, tel, email, comment } = refs.forma;
-    const data = {
+  const { name, tel, email, comment } = refs.forma;
+  if (comment.value.trim() === '') {
+    const result = {
       name: name.value,
-      tel: tel.value,
+      phone: tel.value,
       email: email.value,
-      comment: comment.value,
+      comment: 'comment',
     };
-    tasty.addOrder(data);
-    refs.forma.reset();
-    closeModalClose();
+    testy.addOrder(result);
+    return result;
   }
+  const result = {
+    name: name.value,
+    phone: tel.value,
+    email: email.value,
+    comment: comment.value,
+  };
+  testy.addOrder(result);
+  refs.forma.reset();
+  closeModalClose();
 });
-
-function validateFormAndShowAlert() {
-  const { name, tel, email } = refs.forma;
-
-  if (!name.value.trim() || !tel.value.trim() || !email.value.trim()) {
-    alert("Будь ласка, заповніть всі обов'язкові поля.");
-    return false;
-  }
-
-  if (!email.value.includes('@') || !email.value.includes('.')) {
-    alert('Будь ласка, введіть коректний email.');
-    return false;
-  }
-
-  return true;
-}
 
 function openModalOpen() {
   window.addEventListener('keydown', onEscPress);
