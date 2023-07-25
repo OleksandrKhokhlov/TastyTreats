@@ -1,6 +1,7 @@
 import renderCards from "./render-recipes-cards";
 import {testyTreatsAPI} from "./tasty-treatsAPI.js";
 import { pagination } from "./pagin";
+import { onHeartBtnClick } from "./local-storage";
 
 const recipesEl = document.querySelector('.recipes-block');
 
@@ -8,6 +9,7 @@ export function addRecipes(recipes) {
   if(recipesEl.children.length !== 0) {
     destroyRecipesBlock();
   }
+
   recipesEl.insertAdjacentHTML('beforeend', renderCards(recipes));
 }
 export function loadMoreRecipes() {
@@ -34,4 +36,5 @@ function destroyRecipesBlock() {
   });
 }
 
-loadMoreRecipes()
+loadMoreRecipes();
+recipesEl.addEventListener('click', onHeartBtnClick);

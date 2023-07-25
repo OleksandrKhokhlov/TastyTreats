@@ -36,6 +36,10 @@
   stroke-linejoin: round;
   stroke-opacity: 0.5;
 }
+.recipe-heart-icon-in-favorites {
+  fill: var(--bcg-body-color);
+  stroke-opacity: 1;
+}
 .recipe-info {
   min-height: 105px;
 }
