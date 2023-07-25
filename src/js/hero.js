@@ -55,8 +55,7 @@ async function showInfo() {
 
   heroRef.insertAdjacentHTML('afterbegin', markup);
 
-  //---------------------------------Swiper ------------------------------------------
-  let swiper = new Swiper('.swiper', {
+  const swiper = new Swiper('.swiper', {
     modules: [Pagination, Autoplay],
     pagination: {
       el: '.swiper-pagination',
