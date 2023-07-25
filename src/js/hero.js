@@ -54,21 +54,21 @@ async function showInfo() {
   </div>`;
 
   heroRef.insertAdjacentHTML('afterbegin', markup);
-}
 
-//---------------------------------Swiper ------------------------------------------
-let swiper = new Swiper('.swiper', {
-  modules: [Pagination, Autoplay],
-  pagination: {
-    el: '.swiper-pagination',
-    bulletClass: 'swiper-pagination-bullet',
-    bulletActiveClass: 'swiper-pagination-bullet-active',
-  },
-  // autoplay: {
-  //   delay: 2000,
-  // },
-  spaceBetween: 8,
-  loop: true,
-  slidesPerView: 3,
-  slidesPerGroup: 3,
-});
+  //---------------------------------Swiper ------------------------------------------
+  let swiper = new Swiper('.swiper', {
+    modules: [Pagination, Autoplay],
+    pagination: {
+      el: '.swiper-pagination',
+      bulletClass: 'swiper-pagination-bullet',
+      bulletActiveClass: 'swiper-pagination-bullet-active',
+    },
+    // autoplay: {
+    //   delay: 2000,
+    // },
+    spaceBetween: 8,
+    loop: true,
+    slidesPerView: 3,
+    slidesPerGroup: 3,
+  });
+}
