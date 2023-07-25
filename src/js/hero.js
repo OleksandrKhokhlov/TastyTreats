@@ -5,7 +5,7 @@ import { Autoplay, Pagination } from 'swiper/modules';
 // import 'swiper/css';
 // import 'swiper/css/pagination';
 
-const heroRef = document.querySelector('#swiper-wrapper');
+let heroRef = document.querySelector('.swiper-wrapper');
 
 const testy = new testyTreatsAPI();
 async function getEvents() {
