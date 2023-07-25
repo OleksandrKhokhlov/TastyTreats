@@ -1,6 +1,8 @@
 import { testyTreatsAPI } from './tasty-treatsAPI';
 
 const tasty = new testyTreatsAPI();
+=======
+
 
 const refs = {
   openModalBtns: document.querySelectorAll('.shop-btn'),
