@@ -53,7 +53,7 @@ async function showInfo() {
     <img class="img" src="${elem[2].topic.imgUrl}" loading="lazy" alt="${elem[2].topic.name}">
   </div>`;
 
-  heroRef.insertAdjacentHTMLL('afterbegin', markup);
+  heroRef.insertAdjacentHTML('afterbegin', markup);
 
   const swiper = new Swiper('.swiper', {
     modules: [Pagination, Autoplay],
