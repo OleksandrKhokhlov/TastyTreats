@@ -1,27 +1,24 @@
 'use strict';
-import axios from 'axios';
+import { testyTreatsAPI } from '/js/tasty-treatsAPI';
 import Swiper from 'swiper';
-import { Pagination } from 'swiper/modules';
-import 'swiper/css';
+import { Autoplay, Pagination } from 'swiper/modules';
+// import 'swiper/css';
+// import 'swiper/css/pagination';
 
-const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/events';
-const ref = document.querySelector('#swiper-wrapper');
+const heroRef = document.querySelector('#swiper-wrapper');
 
-const showImages = async () => axios.get(BASE_URL);
+const testy = new testyTreatsAPI();
+async function getEvents() {
+  const resp = await testy.loadEvents();
+  return resp;
+}
+getEvents();
 
-const loader = async () => {
-  try {
-    let a = await showImages(BASE_URL);
-    showInfo(a);
-  } catch {
-    console.log('an arror happened');
-  }
-};
+showInfo();
 
-loader();
-
-function showInfo(arr) {
-  let elem = arr.data;
+async function showInfo() {
+  let eventInfo = await getEvents();
+  let elem = eventInfo.data;
   const markup = `<div class="cook swiper-slide" >
     <img class="img" src="${elem[0].cook.imgUrl}" loading="lazy" alt="${elem[0].cook.name}">
   </div>
@@ -56,19 +53,21 @@ function showInfo(arr) {
     <img class="img" src="${elem[2].topic.imgUrl}" loading="lazy" alt="${elem[2].topic.name}">
   </div>`;
 
-  ref.insertAdjacentHTML('afterbegin', markup);
-}
+  heroRef.insertAdjacentHTMLL('afterbegin', markup);
 
-// ---------------------------------Swiper ------------------------------------------
-const swiper = new Swiper('.swiper', {
-  modules: [Pagination],
-  pagination: {
-    el: '.swiper-pagination',
-    bulletClass: 'swiper-pagination-bullet',
-    bulletActiveClass: 'swiper-pagination-bullet-active',
-  },
-  spaceBetween: 8,
-  loop: true,
-  slidesPerView: 3,
-  slidesPerGroup: 3,
-});
+  const swiper = new Swiper('.swiper', {
+    modules: [Pagination, Autoplay],
+    pagination: {
+      el: '.swiper-pagination',
+      bulletClass: 'swiper-pagination-bullet',
+      bulletActiveClass: 'swiper-pagination-bullet-active',
+    },
+    // autoplay: {
+    //   delay: 2000,
+    // },
+    spaceBetween: 8,
+    loop: true,
+    slidesPerView: 3,
+    slidesPerGroup: 3,
+  });
+}

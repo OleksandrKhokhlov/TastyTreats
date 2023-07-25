@@ -47,3 +47,8 @@
 
 /* Pagination */
 @import url('./pagin.css');
+
+/* <!----------------------------- ScrollUp --------------------------------> */
+@import url('./btn-scrollup.css');
+/* <!------------------------------ loader ---------------------------------> */
+@import url('./loader.css');
