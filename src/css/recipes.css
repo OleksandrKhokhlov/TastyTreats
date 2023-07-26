@@ -1,6 +1,11 @@
 .recipes-blok {
   width: 100%;
 }
+
+.recipe-section {
+  padding-bottom: 40px;
+}
+
 .recipe {
   position: relative;
 
