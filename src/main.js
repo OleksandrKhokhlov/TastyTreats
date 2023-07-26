@@ -3,7 +3,6 @@
 import './js/pagin';
 import './js/header';
 import './js/hero';
-import './js/favorites';
 import './js/categories.js';
 import './js/search';
 import './js/recipes';
