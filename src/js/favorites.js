@@ -1,10 +1,12 @@
 import { pagination } from './pagin';
 import renderCards from './render-recipes-cards';
+// import { deleteRecipeFromFavorites } from './local-storage';
 
 const listFavorites = document.querySelector('.favorites-list');
 const favoritesMessError = document.querySelector('.favorites-error');
 const categoriesFavorites = document.querySelector('.favorites-categories');
 const heroFavorites = document.querySelector('.favorites-hero');
+// const deleteRecipe = document.querySelector('.favorite-heard-btn');
 
 //localStorage
 const recipesFromLocalStorage = JSON.parse(localStorage.getItem('favorites'));
@@ -42,4 +44,3 @@ function createAllCategireisList() {
 createAllCategireisList();
 
 //сортування по категоріях
-

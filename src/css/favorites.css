@@ -59,14 +59,10 @@
     background-color var(--transition-dur-and-func),
     border-color var(--transition-dur-and-func);
 }
-
-/* .favorites-btn.is-active {
+/* 
+.fav-btn.is-active {
   color: var(--accent-color);
   border-color: var(--accent-color);
-
-  transition: color var(--transition-dur-and-func),
-    background-color var(--transition-dur-and-func),
-    border-color var(--transition-dur-and-func);
 } */
 
 .favorites-btn:is(:hover, :focus) {
@@ -81,6 +77,11 @@
   gap: 24px;
   margin-bottom: 40px;
 }
+/* 
+.favorite-heard-icon{
+  fill:  var(--bcg-body-color);
+  stroke-opacity: 1;
+} */
 
 .fav-recipes:not(:last-child) {
   margin-bottom: 0;
