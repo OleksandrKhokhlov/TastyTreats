@@ -1,7 +1,8 @@
 import SlimSelect from 'slim-select'
 import _ from "lodash"
 import { testyTreatsAPI } from "./tasty-treatsAPI";
-
+import {addRecipes} from "./recipes.js";
+import {Notify} from 'notiflix';
 
 
 const searchSelectEl = document.querySelector('#search-key');
@@ -86,7 +87,12 @@ const recipesReq = async () =>{
     
 
     const res = await tastyTreatsAPI.loadRecipes()
-    return res.data
+    if(res.data['results'].length > 0){
+        addRecipes(res.data['results'])
+    }
+    else{
+        Notify.failure('No recipes found');
+    }
 }
 
 searchSelectEl.addEventListener('input', () =>{
@@ -99,7 +105,6 @@ searchSelectEl.addEventListener('input', () =>{
 })
 
 searchSelectEl.addEventListener('change', _.debounce(() => {
-    
     recipesReq()
 }, 300, {leading : false, trailing : true}))
 
