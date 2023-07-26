@@ -76,7 +76,8 @@
 /* Tablet Styles */
 @media (min-width: 768px) and (max-width: 1200px) {
   .section-filter-categories{
-    padding-bottom: 64px;
+    /* padding-bottom: 64px; */
+    padding-bottom: 0px;
   }
   .scrollContainer {
     padding-top: 30px;
@@ -99,11 +100,11 @@
 /* Desktop Styles */
 @media (min-width: 1200px) {
   .section-filter-categories{
-    padding-bottom: 64px;
+    padding-bottom: 0;
   }
   .scrollContainer {
     padding-top: 42px;
-    width: 212px;
+    /* width: 212px; */
   }
 
   .scrollableMenu {

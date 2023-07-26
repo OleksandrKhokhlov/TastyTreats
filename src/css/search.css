@@ -6,7 +6,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 50px;
+    padding-bottom: 50px;
 }
 
 input, select{
@@ -176,8 +176,7 @@ label{
     .search-filters{
         width: 496px;
         justify-content: unset;
-        margin-bottom: 50px;
-
+        padding-bottom: 35px;
     }
 
     .search-label{
@@ -203,16 +202,30 @@ label{
     }
 
     .filter-reset{
-        top: 38px;
-        left: 50px;
+        top: 46px;
+        left: 28px;
     }
 } 
 
-@media screen and (min-width: 1280px){
+@media screen and (min-width: 1200px){
     .search-filters{
         flex-direction: row;
         flex-wrap: nowrap;
-        min-width: 780px
+        min-width: 780px;
+        column-gap: 16px;
     }
-    
+
+    /* .filter-reset {
+        top: 46px;
+        left: 28px;
+    }
+     */
+
+     .search-label {
+        margin-right: 0;
+     }
+
+     .area-label {
+        margin-right: 0;
+     }
 }

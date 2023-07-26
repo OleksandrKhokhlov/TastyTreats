@@ -80,7 +80,7 @@ ul {
 
 @media screen and (min-width: 768px) {
     .popular-recipe {
-        padding-top: 64px;
+        /* padding-top: 64px; */
     }
     .popular-container {
         width: 176px;
