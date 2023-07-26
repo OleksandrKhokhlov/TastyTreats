@@ -26,24 +26,26 @@
   top: 16px;
   right: 16px;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0;
 
   border: 0;
-  background-color: transparent;
-
+  background: 0 0;
+  
   cursor: pointer;
 }
 .recipe-heart-icon {
   fill: transparent;
   stroke: var(--bcg-body-color);
+
   stroke-width: 2px;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-opacity: 0.5;
 }
 .recipe-heart-icon-in-favorites {
   fill: var(--bcg-body-color);
-  stroke-opacity: 1;
 }
 .recipe-info {
   min-height: 105px;
