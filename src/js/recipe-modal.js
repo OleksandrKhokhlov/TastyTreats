@@ -16,8 +16,16 @@ const cardBlockEl = document.querySelector('.recipes-block')
 
 
 cardBlockEl.addEventListener('click', onCard);
-// openSeeBtn.addEventListener('click', onCard);
+// openSeeBtn.addEventListener('click', onClick);
 closeSeeBtn.addEventListener('click', closeModal);
+
+// function onClick() {
+//   setTimeout(
+//     console.log('xcfvg')
+//   , 50);
+  
+// }
+
 
 function closeBackdrop(e) {
   if (e.target === modal) {
@@ -66,6 +74,7 @@ async function getRecipeCard(id) {
     ingrEl.innerHTML =  getIngredients(recipe.ingredients);
     tagsEl.innerHTML = getTags(recipe.tags);
     instructEl.textContent =recipe.instructions;
+    toggleBodyScroll();
     // goldStars(recipe);
   } catch (error) {
     console.log(error)
@@ -114,16 +123,22 @@ function getIngredients(ingredients) {
   return markup;  
 }
 
-
-function goldStars(recipe) {
-    for (let i = 0; i < 5; i++) {
-      if (i < recipe.rating) {
-        starRatingEl[i].classList.add('icon-star-gold');
-      } else {
-        starRatingEl[i].classList.remove('icon-star-gold');
-      }
-    }
+function toggleBodyScroll() {
+  if (document.body.style.overflow === 'visually-hidden') {
+    document.body.style.overflow = '';
+  } else {
+    document.body.style.overflow = 'visually-hidden';
+  }
 }
+// function goldStars(recipe) {
+//     for (let i = 0; i < 5; i++) {
+//       if (i < recipe.rating) {
+//         starRatingEl[i].classList.add('icon-star-gold');
+//       } else {
+//         starRatingEl[i].classList.add('icon-star');
+//       }
+//     }
+// }
 
 function onCard(e) {
     if (e.target.hasAttribute('id')) 
@@ -131,7 +146,7 @@ function onCard(e) {
 }
    
 function openModal(target) {
-    getRecipeCard(target.getAttribute('id'));
+  getRecipeCard(target.getAttribute('id'));
   modal.classList.toggle('visually-hidden');
   document.addEventListener('keydown', keyDown);
   backdropRec.addEventListener('click', closeBackdrop);
