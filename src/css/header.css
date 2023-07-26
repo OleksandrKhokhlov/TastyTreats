@@ -46,7 +46,9 @@ a {
   background-color: transparent;
   padding: 0;
 }
-
+.header-fav {
+  padding-bottom: 50px;
+}
 .header-sup {
   display: flex;
   justify-content: space-between;
@@ -205,6 +207,9 @@ a {
     padding-top: 32px;
     padding-bottom: 95px;
   }
+  .header-fav {
+    padding-bottom: 52px;
+  }
   .header-tablet {
     display: flex;
   }
@@ -242,6 +247,9 @@ a {
   }
   .actions {
     gap: 25px;
+  }
+  .header-fav {
+    padding-bottom: 40px;
   }
   .theme-switch-container {
     display: inline-block;
