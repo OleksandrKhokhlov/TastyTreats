@@ -8,7 +8,6 @@ import './js/categories.js';
 import './js/search';
 import './js/recipes';
 import './js/popular-recipes';
-import './js/favorites';
 import './js/recipe-modal';
 import './js/rating-modal';
 import './js/order-now-modal';
