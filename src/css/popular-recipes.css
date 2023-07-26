@@ -35,6 +35,7 @@ ul {
     height: 67px;
     display: flex;
     overflow-y: hidden;
+    transition: all var(--transition-dur-and-func);
 }
 
 .popular-item:not(:last-child) {
@@ -79,9 +80,9 @@ ul {
 /* tablet */
 
 @media screen and (min-width: 768px) {
-    .popular-recipe {
-        /* padding-top: 64px; */
-    }
+    /* .popular-recipe {
+        padding-top: 64px;
+    } */
     .popular-container {
         width: 176px;
     }

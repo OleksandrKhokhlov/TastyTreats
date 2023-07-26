@@ -45,6 +45,7 @@
   border-radius: 50%;
   border: 1px solid #ddd;
   border-width: 1px 0;
+  transition: all var(--transition-dur-and-func);
 }
 
 .tui-pagination .tui-page-btn:hover {
@@ -265,5 +266,11 @@
   .tui-pagination .tui-next {
     margin-left: 24px;
     margin-right: 8px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .tui-pagination {
+    padding-left: 400px;
   }
 }
