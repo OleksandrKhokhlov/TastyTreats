@@ -1,10 +1,15 @@
 // import { pagination } from './pagin';
+import {
+  onHeartBtnClick,
+  fillingHeartThatWasAddedToFavorites,
+} from './local-storage';
 
 const listFavorites = document.querySelector('.favorites-list');
 const favoritesMessError = document.querySelector('.favorites-error');
 const categoriesFavorites = document.querySelector('.favorites-categories');
 const heroFavorites = document.querySelector('.favorites-hero');
-// const deleteRecipe = document.querySelector('.favorite-heard-btn');
+
+listFavorites.addEventListener('click', onHeartBtnClick);
 
 //localStorage
 const recipesFromLocalStorage = JSON.parse(localStorage.getItem('favorites'));
@@ -13,10 +18,7 @@ const recipesFromLocalStorage = JSON.parse(localStorage.getItem('favorites'));
 function createAllCategireisList() {
   const AllCategireisListItem = recipesFromLocalStorage
     .map(recipe => {
-      return `<button class="favorites-btn fav-btn is-active" name="main-cat-btn">
-                     All categories
-              </button>
-              <button class="favorites-btn btn-categori is-active"
+      return `<button class="favorites-btn btn-categori is-active"
                   type="button">${recipe.category}
               </button>
                 `;
@@ -26,7 +28,6 @@ function createAllCategireisList() {
   categoriesFavorites.insertAdjacentHTML('beforeend', AllCategireisListItem);
 }
 createAllCategireisList();
-
 
 //Рецепти з localStorage
 function doNumberRounding(rating) {
@@ -55,7 +56,7 @@ function renderCardsFavorites() {
         recipe.thumb
       })">
       <button class="recipe-heart-btn favorite-heard-btn">
-        <svg class="recipe-heart-icon favorite-heard-icon" width="22" height="22">
+        <svg class="recipe-heart-icon" width="22" height="22">
           <use href="./images/sprite.svg#icon-heart"></use>
         <svg>
       </button>
@@ -122,12 +123,10 @@ function renderCardsFavorites() {
 
   if (!recipesFromLocalStorage || recipesFromLocalStorage.length === 0) {
     favoritesMessError.classList.remove('visually-hidden');
-    if (window.innerWidth < 768)
+    categoriesFavorites.classList.add('visually-hidden');
+    if (window.screen.innerWidth < 768)
       heroFavorites.classList.add('visually-hidden');
-    return;
   }
+  fillingHeartThatWasAddedToFavorites();
 }
 renderCardsFavorites();
-
-
-
