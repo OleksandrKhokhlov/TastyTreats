@@ -124,8 +124,10 @@ function renderCardsFavorites() {
   if (!recipesFromLocalStorage || recipesFromLocalStorage.length === 0) {
     favoritesMessError.classList.remove('visually-hidden');
     categoriesFavorites.classList.add('visually-hidden');
-    if (window.screen.innerWidth < 768)
+    if (window.screen.innerWidth < 768) {
       heroFavorites.classList.add('visually-hidden');
+    }
+    return;
   }
   fillingHeartThatWasAddedToFavorites();
 }
