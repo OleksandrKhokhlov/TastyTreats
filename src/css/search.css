@@ -6,6 +6,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 50px;
 }
 
 input, select{
@@ -81,6 +82,8 @@ label{
     box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
 
   }
+
+
 
   .ss-single{
     color: #000;
@@ -173,6 +176,8 @@ label{
     .search-filters{
         width: 496px;
         justify-content: unset;
+        margin-bottom: 50px;
+
     }
 
     .search-label{
@@ -202,3 +207,12 @@ label{
         left: 50px;
     }
 } 
+
+@media screen and (min-width: 1280px){
+    .search-filters{
+        flex-direction: row;
+        flex-wrap: nowrap;
+        min-width: 780px
+    }
+    
+}
