@@ -25,7 +25,7 @@ async function showInfo() {
                       <img class="img" src="${evt.topic.previewUrl}" loading="lazy" alt="${evt.topic.name}">
                     <p class="event-descr">${evt.topic.name}</p>
                     <p class="event-country">${evt.topic.area}</p>
-                  </div>s
+                  </div>
                 </div>
                 <div class="big-dish swiper-item" style="background-image:url('${evt.topic.previewUrl}')"></div>
             </div>`;
