@@ -67,11 +67,11 @@
   gap: 24px;
   margin-bottom: 40px;
 }
-/* 
+
 .favorite-heard-icon{
   fill:  var(--bcg-body-color);
   stroke-opacity: 1;
-} */
+}
 
 .fav-recipes:not(:last-child) {
   margin-bottom: 0;
