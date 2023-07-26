@@ -14,9 +14,13 @@ a {
 
 .nav-link {
   color: var(--popular-text-desc-color);
-  font-family: Inter;
   font-size: 12px;
   font-style: normal;
+}
+.item-nav:active,
+.item-nav:visited,
+.item-nav:focus {
+  color: #9bb537; /* Колір тексту для активної, відвіданої та вибраної сторінки */
 }
 .header {
   padding-top: 25px;
@@ -130,6 +134,10 @@ a {
   font-style: normal;
   line-height: normal;
   transition: color var(--transition-dur-and-func);
+}
+.item-nav:hover,
+.item-nav:focus {
+  color: #9bb537;
 }
 .down-content {
   position: absolute;
@@ -248,6 +256,7 @@ a {
   .actions {
     gap: 25px;
   }
+
   .header-fav {
     padding-bottom: 40px;
   }
