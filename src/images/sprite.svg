@@ -1,7 +1,7 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
 <symbol id="icon-heart" viewBox="0 0 22 22">
-<path d="M10.994 4.708c-1.833-2.143-4.89-2.72-7.185-.757-2.297 1.962-2.62 5.242-.817 7.563 1.5 1.929 6.037 5.998 7.524 7.315.167.147.25.221.347.25a.463.463 0 0 0 .262 0c.097-.029.18-.103.347-.25 1.487-1.317 6.024-5.386 7.523-7.315 1.804-2.32 1.52-5.622-.816-7.563-2.336-1.942-5.352-1.386-7.185.757Z" clip-rule="evenodd" opacity=".5"/>
+<path d="M10.994 4.708c-1.833-2.143-4.89-2.72-7.185-.757-2.297 1.962-2.62 5.242-.817 7.563 1.5 1.929 6.037 5.998 7.524 7.315.167.147.25.221.347.25a.463.463 0 0 0 .262 0c.097-.029.18-.103.347-.25 1.487-1.317 6.024-5.386 7.523-7.315 1.804-2.32 1.52-5.622-.816-7.563-2.336-1.942-5.352-1.386-7.185.757Z" clip-rule="evenodd"/>
 </symbol>
 <symbol id="icon-menu-burger" viewBox="0 0 32 32">
 <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" stroke="#000" d="M28 13.333h-24M28 8h-24M28 18.667h-24M28 24h-24"></path>
