@@ -1,10 +1,10 @@
-
 import { testyTreatsAPI } from "./tasty-treatsAPI";
 
+const backdropRec = document.querySelector('.backdrop-see-recipe');
 const openSeeBtn = document.querySelector('.recipe-btn');
 const closeSeeBtn =  document.querySelector('[data-modal-close]');
-const modal = document.querySelector('[data-modal-reciepe]');
-const nameRecipe = document.querySelector('.name-reciepe')
+const modal = document.querySelector('[data-modal-recipe]');
+const nameRecipe = document.querySelector('.name-recipe')
 const instructEl = document.querySelector('.instructions');
 const ratingEl = document.querySelector('.rating');
 const timeEl=document.querySelector('.modal-time');
@@ -12,16 +12,32 @@ const starRatingEl = document.querySelector('.icon-star')
 const mediaEl = document.querySelector('.media');
 const tagsEl = document.querySelector('.tags');
 const ingrEl = document.querySelector('.ingredients');
+const cardBlockEl = document.querySelector('.recipes-block')
 
 
-openSeeBtn.addEventListener('click', toggleModal);
-closeSeeBtn.addEventListener('click', toggleModal);
+cardBlockEl.addEventListener('click', onCard);
+// openSeeBtn.addEventListener('click', onCard);
+closeSeeBtn.addEventListener('click', closeModal);
 
-function toggleModal() {
- modal.classList.toggle('visually-hidden');
-getRecipeCard('6462a8f74c3d0ddd28897fba')
+function closeBackdrop(e) {
+  if (e.target === modal) {
+     closeModal()
+   }
 }
 
+
+function keyDown(e) {
+  if (e.key === 'Escape') {
+    closeModal();
+   
+  }
+}
+
+function closeModal() {
+  modal.classList.toggle('visually-hidden');
+  document.removeEventListener('keydown', keyDown);
+  modal.removeEventListener('click', closeBackdrop);
+}
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes/';
 
 
@@ -37,21 +53,20 @@ async function loadRecipesById(id) {
 
 
 async function getRecipeCard(id) {
-  // const testy = new testyTreatsAPI();
+  
     try {
-      const recipe = await loadRecipesById(id);
-      console.log(recipe);
-   nameRecipe.textContent = recipe.title;
-    if (recipe.rating > 5) {
+      const recipe = await loadRecipesById(id); 
+      mediaEl.innerHTML = getMedia(recipe.youtube, recipe.thumb, recipe.title);
+      nameRecipe.textContent = recipe.title;
+       if (recipe.rating > 5) {
         recipe.rating = 5;
-      }
+     }
     ratingEl.textContent = recipe.rating;
     timeEl.textContent = `${recipe.time} min`;
+    ingrEl.innerHTML =  getIngredients(recipe.ingredients);
+    tagsEl.innerHTML = getTags(recipe.tags);
     instructEl.textContent =recipe.instructions;
-    // starsRecipe(recipe);
-tagsEl.innerHTML = getTags(recipe.tags);
-ingrEl.innerHTML = getIngredients(recipe.ingredients);
-mediaEl.innerHTML = getMedia(recipe.youtube, recipe.thumb, recipe.title);
+    // goldStars(recipe);
   } catch (error) {
     console.log(error)
   }
@@ -68,8 +83,11 @@ function getMedia(youtube, image, alt) {
             'watch?v=',
             'embed/'
           )}"
-          width="295"
-          height="295"
+          width="100%"
+          height="100%"
+          frameborder = "0"
+allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen
         ></iframe>`
   }
 };
@@ -80,7 +98,7 @@ function getTags(tags) {
   }
   let markup = '';
       for (const tag of tags) {
-         markup += `<li class="recipe-tag">${tag}</li>`; 
+         markup += `<li class="recipe-tag">#${tag}</li>`; 
       }
        return markup;  
 }
@@ -97,13 +115,24 @@ function getIngredients(ingredients) {
 }
 
 
-// function starsRecipe(recipe) {
-//     for (let i = 0; i < 5; i++) {
-//       if (i < recipe.rating) {
-//         starRatingEl[i].classList.add('icon-star');
-//       } else {
-//         starRatingEl[i].classList.remove('icon-star');
-//       }
-//     }
-//   }
+function goldStars(recipe) {
+    for (let i = 0; i < 5; i++) {
+      if (i < recipe.rating) {
+        starRatingEl[i].classList.add('icon-star-gold');
+      } else {
+        starRatingEl[i].classList.remove('icon-star-gold');
+      }
+    }
+}
 
+function onCard(e) {
+    if (e.target.hasAttribute('id')) 
+    openModal(e.target);
+}
+   
+function openModal(target) {
+    getRecipeCard(target.getAttribute('id'));
+  modal.classList.toggle('visually-hidden');
+  document.addEventListener('keydown', keyDown);
+  backdropRec.addEventListener('click', closeBackdrop);
+}
