@@ -1,4 +1,4 @@
-import { pagination } from './pagin';
+// import { pagination } from './pagin';
 import renderCards from './render-recipes-cards';
 // import { deleteRecipeFromFavorites } from './local-storage';
 
@@ -18,11 +18,12 @@ function renderCardsFavorites() {
     'beforeend',
     renderCards(recipesFromLocalStorage)
   );
-
   if (recipesFromLocalStorage.length === 0) {
     favoritesMessError.classList.remove('visually-hidden');
-    categoriesFavorites.classList.add('visually-hidden');
-    if (window.innerWidth < 767) heroFavorites.classList.add('visually-hidden');
+    return;
+  }
+  if (window.innerWidth < 767) {
+    heroFavorites.classList.add('visually-hidden');
     return;
   }
 }
@@ -32,9 +33,12 @@ renderCardsFavorites();
 function createAllCategireisList() {
   const AllCategireisListItem = recipesFromLocalStorage
     .map(recipe => {
-      return `<button class="favorites-btn btn-categori is-active"
+      return `<button class="favorites-btn fav-btn is-active" name="main-cat-btn">
+                     All categories
+              </button>
+              <button class="favorites-btn btn-categori is-active"
                   type="button">${recipe.category}
-                </button>
+              </button>
                 `;
     })
     .join('');
