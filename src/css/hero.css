@@ -7,6 +7,10 @@
     padding: 0;
 }
 
+.hero-container {
+    overflow: hidden;
+}
+
 .hero-div {
     padding-bottom: 80px;
 }
@@ -57,7 +61,8 @@
 
 /*------------------------------ slider --------------------------------------------- */
 .swiper {
-    width: 335px;
+    /* width: 335px; */
+    width: 496px;
     height: 302px;
     overflow: hidden;
 }
@@ -170,7 +175,8 @@
     }
 
     .swiper {
-        width: 704px;
+        /* width: 704px; */
+        width: 871px;
         height: 468px;
     }
 
