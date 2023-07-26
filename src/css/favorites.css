@@ -44,6 +44,7 @@
 .favorites-btn {
   border-radius: 15px;
   font-size: 14px;
+  color: rgba(5, 5, 5, 0.3);
   font-family: Inter, sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -53,21 +54,36 @@
   border: 1px solid rgba(5, 5, 5, 0.2);
   outline: none;
   cursor: pointer;
-}
-
-.favorites-btn.is-active {
-  color: var(--accent-color);
-  border-color: var(--accent-color);
 
   transition: color var(--transition-dur-and-func),
     background-color var(--transition-dur-and-func),
     border-color var(--transition-dur-and-func);
 }
 
+/* .favorites-btn.is-active {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+
+  transition: color var(--transition-dur-and-func),
+    background-color var(--transition-dur-and-func),
+    border-color var(--transition-dur-and-func);
+} */
+
 .favorites-btn:is(:hover, :focus) {
   background-color: var(--accent-color);
   color: var(--sec-text-color);
   border-color: var(--accent-color);
+}
+
+.favorites-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.fav-recipes:not(:last-child) {
+  margin-bottom: 0;
 }
 
 @media screen and (max-width: 767px) {
@@ -121,10 +137,24 @@
     font-size: 16px;
     line-height: 1.25;
   }
+
+  .favorites-list {
+    gap: 16px;
+    margin-bottom: 64px;
+  }
+
+  .fav-recipes {
+    width: 224px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
   .favorites-hero-img {
     width: 996px;
   }
+
+  .fav-recipes {
+    width: 238px;
+  }
 }
+
