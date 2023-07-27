@@ -111,17 +111,17 @@ searchSelectEl.addEventListener('input', _.debounce((e) => {
     recipesReq()
 }, 300, {leading : false, trailing : true}))
 
-areaSelectElement.addEventListener('change', _.debounce(() => {
+areaSelectElement.addEventListener('change', () => {
     recipesReq()
-}, 300, {leading : false, trailing : true}))
+})
 
-ingredientsSelectElement.addEventListener('change', _.debounce(() => {
+ingredientsSelectElement.addEventListener('change', () => {
     recipesReq()
-}, 300, {leading : false, trailing : true}))
+})
 
-timeSelectEl.addEventListener('change', _.debounce(() => {
+timeSelectEl.addEventListener('change', () => {
     recipesReq()
-}, 300, {leading : false, trailing : true}))
+})
 
 resetFiltersEl.addEventListener('click', () =>{
     document.querySelector('.icon-search').style.fill = '#05050580'
