@@ -1,8 +1,8 @@
 import Pagination from 'tui-pagination';
 
 const options = {
-  totalItems: 500,
-  itemsPerPage: 10,
+  totalItems: 5,
+  itemsPerPage: 1,
   visiblePages: 2,
   template: {
     page: '<button type="button" class="tui-page-btn">{{page}}</button>',
