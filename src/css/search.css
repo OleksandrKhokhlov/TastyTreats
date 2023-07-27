@@ -35,6 +35,8 @@ label{
 .ss-main{
     width: 100% ;
     padding: 5px ;
+    height: 46px;
+
 
 
     border: 1px solid #05050533 ;
@@ -117,6 +119,7 @@ label{
     border: 1px solid #05050533;
 
     border-radius: 15px;
+    height: 46px;
 }
 
 .icon-search{
@@ -206,6 +209,14 @@ label{
     .filter-reset{
         top: 46px;
         left: 28px;
+    }
+
+    #search-key{
+        height: 48px;
+    }
+
+    .ss-main{
+        height: 48px;
     }
 } 
 
