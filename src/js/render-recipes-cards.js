@@ -51,7 +51,7 @@ export default function renderCards(recipes) {
                   recipe.rating,
                   2
                 )}" width="14" height="14">
-                  <use href="./images/sprite.svg#icon-star"></use>
+                  <use href="/project-food1728/assets/sprite-27867edf.svg#icon-star"></use>
                 </svg>
               </li>
               <li class="recipe-rating-star-item">
@@ -59,7 +59,7 @@ export default function renderCards(recipes) {
                   recipe.rating,
                   3
                 )}" width="14" height="14">
-                  <use href="./images/sprite.svg#icon-star"></use>
+                  <use href="/project-food1728/assets/sprite-27867edf.svg#icon-star"></use>
                 </svg>
               </li>
               <li class="recipe-rating-star-item">
@@ -67,7 +67,7 @@ export default function renderCards(recipes) {
                   recipe.rating,
                   4
                 )}" width="14" height="14">
-                  <use href="./images/sprite.svg#icon-star"></use>
+                  <use href="/project-food1728/assets/sprite-27867edf.svg#icon-star"></use>
                 </svg>
               </li>
               <li class="recipe-rating-star-item">
@@ -75,7 +75,7 @@ export default function renderCards(recipes) {
                   recipe.rating,
                   5
                 )}" width="14" height="14">
-                  <use href="./images/sprite.svg#icon-star"></use>
+                  <use href="/project-food1728/assets/sprite-27867edf.svg#icon-star"></use>
                 </svg>
               </li>
             </ul>
