@@ -14,6 +14,7 @@ function fillingStar(rating, numStar) {
     return 'no-filled-star-icon';
   }
 }
+
 export default function renderCards(recipes) {
   return recipes
     .map(recipe => {

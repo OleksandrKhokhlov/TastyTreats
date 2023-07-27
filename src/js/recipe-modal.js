@@ -8,7 +8,7 @@ const nameRecipe = document.querySelector('.name-recipe')
 const instructEl = document.querySelector('.instructions');
 const ratingEl = document.querySelector('.rating');
 const timeEl=document.querySelector('.modal-time');
-const starRatingEl = document.querySelector('.icon-star')
+const starRatingEl = document.querySelectorAll('.icon-star')
 const mediaEl = document.querySelector('.media');
 const tagsEl = document.querySelector('.tags');
 const ingrEl = document.querySelector('.ingredients');
@@ -16,7 +16,11 @@ const cardBlockEl = document.querySelector('.recipes-block')
 
 
 cardBlockEl.addEventListener('click', onCard);
-// openSeeBtn.addEventListener('click', onClick);
+// setInterval(() => {
+//   openSeeBtn.addEventListener('click', onCard);
+// }, 1000);
+
+
 closeSeeBtn.addEventListener('click', closeModal);
 
 // function onClick() {
@@ -60,22 +64,24 @@ async function loadRecipesById(id) {
 }
 
 
+
 async function getRecipeCard(id) {
-  
+  // const testy = new testyTreatsAPI();
     try {
+      // const recipe = await testy.loadRecipesById(id);
       const recipe = await loadRecipesById(id); 
       mediaEl.innerHTML = getMedia(recipe.youtube, recipe.thumb, recipe.title);
       nameRecipe.textContent = recipe.title;
        if (recipe.rating > 5) {
         recipe.rating = 5;
      }
-    ratingEl.textContent = recipe.rating;
+    ratingEl.textContent = Math.round(recipe.rating);
     timeEl.textContent = `${recipe.time} min`;
     ingrEl.innerHTML =  getIngredients(recipe.ingredients);
     tagsEl.innerHTML = getTags(recipe.tags);
     instructEl.textContent =recipe.instructions;
     toggleBodyScroll();
-    // goldStars(recipe);
+    goldStars(recipe);
   } catch (error) {
     console.log(error)
   }
@@ -130,19 +136,22 @@ function toggleBodyScroll() {
     document.body.style.overflow = 'visually-hidden';
   }
 }
-// function goldStars(recipe) {
-//     for (let i = 0; i < 5; i++) {
-//       if (i < recipe.rating) {
-//         starRatingEl[i].classList.add('icon-star-gold');
-//       } else {
-//         starRatingEl[i].classList.add('icon-star');
-//       }
-//     }
-// }
+function goldStars(recipe) {
+    for (let i = 0; i < 5; i++) {
+      if (i < Math.round(recipe.rating)) {
+        starRatingEl[i].classList.add('icon-star-gold');
+      } else {
+        starRatingEl[i].classList.remove('icon-star-gold');
+      }
+    }
+}
 
 function onCard(e) {
+  setTimeout(() => {
     if (e.target.hasAttribute('id')) 
     openModal(e.target);
+  }, 100);
+    
 }
    
 function openModal(target) {
