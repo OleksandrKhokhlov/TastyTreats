@@ -110,7 +110,7 @@ padding-bottom: 33px;
 }
 
 .icon-star{
-  fill: var(--rating-color);
+  fill: var(--switch-color-uncheck);
 }
 
 .icon-star-gold{
@@ -170,7 +170,7 @@ color: var(--filtr-text-color);
     cursor: pointer;
     color: var(--pr-text-color);
     border-radius: 35px;
-    /* padding: 8px 16px; */
+    padding: 8px 16px;
     font-family: Inter,sans-serif;
     font-size: 12px;
     font-weight: 500;
