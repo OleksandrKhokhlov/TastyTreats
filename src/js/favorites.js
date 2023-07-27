@@ -9,6 +9,11 @@ const favoritesMessError = document.querySelector('.favorites-error');
 const categoriesFavorites = document.querySelector('.favorites-categories');
 const heroFavorites = document.querySelector('.favorites-hero');
 
+// show current page ------
+document.querySelector('.nav-link-home').classList.remove('current');
+document.querySelector('.nav-link-fav').classList.add('current');
+//------------------------
+
 listFavorites.addEventListener('click', onHeartBtnClick);
 
 //localStorage
