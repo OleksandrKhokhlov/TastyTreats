@@ -1,4 +1,3 @@
-// import { pagination } from './pagin';
 import {
   onHeartBtnClick,
   fillingHeartThatWasAddedToFavorites,
@@ -57,7 +56,7 @@ function renderCardsFavorites() {
       return `
     <article id="${
       recipe._id
-    }" class="recipe" style="background-image: linear-gradient(1deg, rgba(5, 5, 5, 0.60) 0%, rgba(5, 5, 5, 0.00) 100%), url(${
+    }" class="recipe recipe-favorites" style="background-image: linear-gradient(1deg, rgba(5, 5, 5, 0.60) 0%, rgba(5, 5, 5, 0.00) 100%), url(${
         recipe.thumb
       })">
       <button class="recipe-heart-btn favorite-heard-btn">
@@ -129,8 +128,9 @@ function renderCardsFavorites() {
   if (!recipesFromLocalStorage || recipesFromLocalStorage.length === 0) {
     favoritesMessError.classList.remove('visually-hidden');
     categoriesFavorites.classList.add('visually-hidden');
-    if (window.screen.innerWidth < 768) {
+    if (window.innerWidth < 768) {
       heroFavorites.classList.add('visually-hidden');
+      favoritesMessError.classList.add('favorites-error-js');
     }
     return;
   }
