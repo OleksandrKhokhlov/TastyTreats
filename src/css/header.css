@@ -19,6 +19,7 @@ a {
 }
 
 .header {
+  height: 97px;
   padding-top: 25px;
   padding-bottom: 85px;
 }
@@ -244,6 +245,7 @@ a {
 
 @media screen and (min-width: 1200px) {
   .header {
+    height: 100px;
     padding-top: 45px;
     padding-bottom: 94px;
   }
