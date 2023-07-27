@@ -38,6 +38,7 @@ export function loadMoreRecipes() {
       if (categoryFilter !== null){
         testy.category = categoryFilter.textContent;
       }
+     
       cssLoaderRef.classList.remove('visually-hidden')
       const response = await testy.loadRecipes();
       console.log(response)

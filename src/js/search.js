@@ -3,6 +3,7 @@ import _ from "lodash"
 import { testyTreatsAPI } from "./tasty-treatsAPI";
 import {addRecipes} from "./recipes.js";
 import {Notify} from 'notiflix';
+import { pagination } from "./pagin";
 
 
 const formEl = document.querySelector('.search-filters')
@@ -99,6 +100,7 @@ const recipesReq = async () =>{
   const res = await tasty.loadRecipes()
   if(res.data['results'].length > 0){
     addRecipes(res.data['results'])
+    pagination.movePageTo(1);
   }
   else{
     Notify.failure('No recipes found');
