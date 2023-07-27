@@ -133,7 +133,6 @@ function openModal(target) {
   backdropRec.addEventListener('click', closeBackdrop);
 }
 
-
 function onSeeBtnClick(e) {
   const recipeSeeBtnEl = e.target.closest('.recipe-btn');
   if (!recipeSeeBtnEl) {
@@ -143,5 +142,4 @@ function onSeeBtnClick(e) {
   openModal(e.target);
 
 };
-
 cardBlockEl.addEventListener('click', onSeeBtnClick);
