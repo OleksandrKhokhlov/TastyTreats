@@ -218,16 +218,14 @@ color: var(--filtr-text-color);
   transition: var(--transition-dur-and-func);   
 }
 
-
-.recipe-btn:hover{
-    transition: var(--transition-dur-and-func);
-    border: 1px solid #9bb537;
-    border-radius: 8px;
-    padding: 8px 14px;
-    font-size: 12px;
-    font-weight: 500;
+.recipe-btn {
+  transition: all var(--transition-dur-and-func);
 }
 
+.recipe-btn:is(:hover, :focus) {
+    /* border: 1px solid #9bb537; */
+    color: black;
+}
 
 ::-webkit-scrollbar {
   width: 10px;
