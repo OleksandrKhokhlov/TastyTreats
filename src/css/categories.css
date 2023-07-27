@@ -17,7 +17,7 @@
   font-weight: 500;
   line-height: normal;
   cursor: pointer;
-  background: white;
+  background: transparent;
   /* color: #000000; */
   color: rgba(5, 5, 5, 0.50);
   transition: all var(--transition-dur-and-func);
@@ -31,9 +31,8 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  background: var(--bcg-body-color);
-  /* color: var(--bcg-body-color); */
-  color: var(--filtr-text-color);
+  background: var(--accent-color);
+  color: var(--bcg-body-color);
   font-size: 18px;
   font-weight: 500;
   line-height: normal;
