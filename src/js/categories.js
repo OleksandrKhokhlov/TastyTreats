@@ -1,6 +1,7 @@
 import { Notify } from 'notiflix';
 import { testyTreatsAPI } from './tasty-treatsAPI.js';
 import { addRecipes } from './recipes.js';
+import { pagination } from "./pagin";
 let lastClickedMenuItem = null;
 
 const cssLoaderRef = document.querySelector('span.loader')
@@ -34,6 +35,7 @@ async function fetchRecipeDetails(recipeName) {
     const response = await testyDetails.loadRecipes();
     cssLoaderRef.classList.remove('visually-hidden')
     addRecipes(response.data['results']);
+    pagination.movePageTo(1);
     cssLoaderRef.classList.add('visually-hidden')
     // return await response.data;
   } catch (error) {
@@ -55,6 +57,7 @@ export async function fetchAllRecipes() {
     cssLoaderRef.classList.remove('visually-hidden')
     const response = await testy.loadRecipes();
     addRecipes(response.data['results']);
+    pagination.movePageTo(1);
     cssLoaderRef.classList.add('visually-hidden')
     // return await response.data;
   } catch (error) {
