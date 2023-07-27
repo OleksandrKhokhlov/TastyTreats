@@ -31,9 +31,11 @@ export function loadMoreRecipes() {
   pagination.on('afterMove', async eventData => {
     const categoryFilter = document.querySelector('.active_btn')
     const timeFilter = document.querySelector(".time-label > div > div.ss-values > div")
-    const areaFilter = document.querySelector(".area-label > div > div.ss-values > div")
+    const areaFilter = document.querySelector(".area-label > div > div.ss-values > div");
+    const searchSelectEl = document.querySelector('#search-key');
     const testy = new testyTreatsAPI();
     try {
+      testy.title = searchSelectEl.value.trim();
       testy.ingredient = category_id;
       testy.time = timeFilter.textContent
       testy.area = areaFilter.textContent
@@ -41,7 +43,7 @@ export function loadMoreRecipes() {
       if (categoryFilter !== null){
         testy.category = categoryFilter.textContent;
       }
-
+      
       cssLoaderRef.classList.remove('visually-hidden')
       const response = await testy.loadRecipes();
       cssLoaderRef.classList.add('visually-hidden')
