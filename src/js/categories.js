@@ -21,6 +21,9 @@ ingredientsSelectElement.addEventListener('change', () => {
   if (ingredientsSelectElement.value !== ''){
     category_id = ingredientsSelectElement.value;
   }
+  else{
+    category_id = null
+  }
 });
 async function fetchRecipeDetails(recipeName) {
   getRecipesButton.classList.remove('btn-active');
