@@ -109,7 +109,6 @@ const recipesReq = async () => {
     Notify.failure('No recipes found');
   }
 };
-
 searchSelectEl.addEventListener('input', () => {
   if (searchSelectEl.value.trim() != '') {
     document.querySelector('.icon-search').style.fill = '#9BB537';
