@@ -9,7 +9,8 @@ const starRatingEl = document.querySelectorAll('.icon-star')
 const mediaEl = document.querySelector('.media');
 const tagsEl = document.querySelector('.tags');
 const ingrEl = document.querySelector('.ingredients');
-const cardBlockEl = document.querySelector('.recipes-block')
+const cardBlockEl = document.querySelector('.recipes-block');
+const modalRecipeWithId = document.querySelector('.modal_recipe');
 
 closeSeeBtn.addEventListener('click', closeModal);
 
@@ -57,6 +58,7 @@ async function getRecipeCard(id) {
     ingrEl.innerHTML =  getIngredients(recipe.ingredients);
     tagsEl.innerHTML = getTags(recipe.tags);
     instructEl.textContent =recipe.instructions;
+    modalRecipeWithId.setAttribute('id', recipe._id);
     toggleBodyScroll();
     goldStars(recipe);
   } catch (error) {
