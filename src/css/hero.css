@@ -188,7 +188,7 @@
         height: 442px;
     }
 
-    .cook {
+    .swiper-slide .cook {
         width: 137px;
     }
 
@@ -202,14 +202,15 @@
 
     .event-info {
         padding-top: 67px;
+        padding-bottom: 32px;
     }
 
     .event-descr {
         font-size: 14px;
         font-weight: 500;
         line-height: 1.28;
-        padding-top: 32px;
-
+        /* padding-top: 32px; */
+        padding-top: 10px;
     }
 
     .event-country {
@@ -219,7 +220,8 @@
 
     .big-dish {
         width: 351px;
-        background-size: 600px;
+        background-size: 650px;
+        background-position: 60%;
     }
 
     .swiper .swiper-pagination {
@@ -239,16 +241,22 @@
         width: 446px;
     }
 
-    .swiper-wrapper {
-        width: 804px;
-    }
-
     .small-dish {
         width: 351px;
     }
 
     .small-dish .img {
         width: 304px;
+    }
+
+    .event-descr {
+        padding-top: 32px;
+    }
+
+    .big-dish {
+        width: 351px;
+        background-size: 650px;
+        background-position: 50%;
     }
 
     .swiper .swiper-pagination {
