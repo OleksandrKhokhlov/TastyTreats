@@ -16,6 +16,7 @@ a {
   color: var(--popular-text-desc-color);
   font-size: 12px;
   font-style: normal;
+  transition: color var(--transition-dur-and-func);
 }
 
 .header {
@@ -130,6 +131,10 @@ a {
   color: var(--pr-text-DT-color);
   font-size: 12px;
   transition: color var(--transition-dur-and-func);
+}
+
+.nav-link:is(:hover, :focus) {
+  color: var(--accent-color);
 }
 
 .down-content {
