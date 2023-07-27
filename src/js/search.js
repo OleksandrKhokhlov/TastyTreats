@@ -99,8 +99,9 @@ const recipesReq = async () =>{
 
   const res = await tasty.loadRecipes()
   if(res.data['results'].length > 0){
+    
     addRecipes(res.data['results'])
-    pagination.movePageTo(1);
+    
   }
   else{
     Notify.failure('No recipes found');
@@ -119,19 +120,25 @@ searchSelectEl.addEventListener('input', () =>{
 
 searchSelectEl.addEventListener('input', _.debounce((e) => {
     e.preventDefault()
-    recipesReq()
+    recipesReq();
+    if(searchSelectEl.value.trim() === '') {
+      pagination.movePageTo(1);
+    }
 }, 300, {leading : false, trailing : true}))
 
 areaSelectElement.addEventListener('change', () => {
-    recipesReq()
+    recipesReq();
+    pagination.movePageTo(1);
 })
 
 ingredientsSelectElement.addEventListener('change', () => {
-    recipesReq()
+    recipesReq();
+    pagination.movePageTo(1);
 })
 
 timeSelectEl.addEventListener('change', () => {
     recipesReq()
+    pagination.movePageTo(1);
 })
 
 

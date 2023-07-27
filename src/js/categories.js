@@ -30,11 +30,13 @@ async function fetchRecipeDetails(recipeName) {
   const testyDetails = new testyTreatsAPI();
   try {
     const timeFilter = document.querySelector(".time-label > div > div.ss-values > div")
-    const areaFilter = document.querySelector(".area-label > div > div.ss-values > div")
+    const areaFilter = document.querySelector(".area-label > div > div.ss-values > div");
+    const searchSelectEl = document.querySelector('#search-key');
     testyDetails.category = recipeName;
     testyDetails.ingredient = category_id;
     testyDetails.time = timeFilter.textContent
-    testyDetails.area = areaFilter.textContent
+    testyDetails.area = areaFilter.textContent;
+    testyDetails.title = searchSelectEl.value.trim();
     const response = await testyDetails.loadRecipes();
     cssLoaderRef.classList.remove('visually-hidden')
     addRecipes(response.data['results']);
@@ -50,15 +52,18 @@ export async function fetchAllRecipes() {
   getRecipesButton.classList.add('btn-active');
   try {
     const testy = new testyTreatsAPI();
-    const timeFilter = document.querySelector(".time-label > div > div.ss-values > div")
-    const areaFilter = document.querySelector(".area-label > div > div.ss-values > div")
+    const timeFilter = document.querySelector(".time-label > div > div.ss-values > div");
+    const areaFilter = document.querySelector(".area-label > div > div.ss-values > div");
+    const searchSelectEl = document.querySelector('#search-key');
     if (timeFilter !== null || areaFilter !== null){
       testy.ingredient = category_id;
       testy.time = timeFilter.textContent
       testy.area = areaFilter.textContent
+      testy.title = searchSelectEl.value.trim();
     }
     cssLoaderRef.classList.remove('visually-hidden')
     const response = await testy.loadRecipes();
+    
     addRecipes(response.data['results']);
     pagination.movePageTo(1);
     cssLoaderRef.classList.add('visually-hidden')
