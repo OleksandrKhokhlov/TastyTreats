@@ -5,6 +5,8 @@ import {addRecipes} from "./recipes.js";
 import {Notify} from 'notiflix';
 
 
+const formEl = document.querySelector('.search-filters')
+
 const searchSelectEl = document.querySelector('#search-key');
 const timeSelectEl = document.querySelector('#time-key')
 const areaSelectElement = document.querySelector('#area-key');
@@ -19,57 +21,61 @@ let ingredientSlimSelect = undefined
 
 
 tastyTreatsAPI.loadAreas()
-.then((res) => res.data)
-.then((res) => {
+  .then((res) => res.data)
+  .then((res) => {
     for(let result in res){
-        areaSelectElement.insertAdjacentHTML('beforeend',
+      areaSelectElement.insertAdjacentHTML('beforeend',
         `
             <option value="${res[result].name}">${res[result].name}</option>
         `)
     }
 
     areaSlimSelect = new SlimSelect({
-        select : areaSelectElement,
-        settings : {
-            showSearch : false,
-            placeholderText: 'Region',
-            allowDeselect: true,
-            maxValuesShown: 6,
-        }
+      select : areaSelectElement,
+      settings : {
+        showSearch : false,
+        placeholderText: 'Region',
+        allowDeselect: true,
+        maxValuesShown: 6,
+      }
     })
+  })
+
+ingredientSlimSelect =new SlimSelect({
+  select : ingredientsSelectElement,
+  settings : {
+    showSearch : false,
+    placeholderText: 'Product',
+    allowDeselect: true,
+    maxValuesShown: 6,
+  },
+  showContent: false,
 })
-
-
 tastyTreatsAPI.loadIngredients()
-.then(res => res.data)
-.then((res) => {
-    for(let result in res){
-        ingredientsSelectElement.insertAdjacentHTML('beforeend',
-        `
-            <option value="${res[result].name}">${res[result].name}</option>
-        `)
-    }
-
-    ingredientSlimSelect =new SlimSelect({
-        select : ingredientsSelectElement,
-        settings : {
-            showSearch : false,
-            placeholderText: 'Product',
-            allowDeselect: true,
-            maxValuesShown: 6,
-        }
-    })
-})
+  .then(res => res.data)
+  .then((res) => {
+    const data = res.map((item) => {
+      const optionElement = document.createElement('option');
+      optionElement.value = item._id
+      optionElement.textContent = item.name
+      return optionElement
+    });
+    ingredientSlimSelect.setData([
+      // Make sure placeholder is first value
+      {text: '', placeholder: true},
+      ...data
+    ])
+  })
 
 
 timeSlimSelect = new SlimSelect({
-    select : timeSelectEl,
-    settings : {
-        showSearch : false,
-        placeholderText: '0 min',
-        allowDeselect: true,
-        maxValuesShown: 6,
-    }
+  select : timeSelectEl,
+  settings : {
+    showSearch : false,
+    placeholderText: '0 min',
+    allowDeselect: true,
+    maxValuesShown: 6,
+  }
 })
 
 
@@ -77,53 +83,65 @@ timeSlimSelect = new SlimSelect({
 
 
 const recipesReq = async () =>{
-        tastyTreatsAPI.title = searchSelectEl.value.trim()
-    
-        tastyTreatsAPI.time = timeSelectEl.value
-    
-        tastyTreatsAPI.area = areaSelectElement.value
-    
-        tastyTreatsAPI.ingredient = ingredientsSelectElement.value
-    
+  const tasty = new testyTreatsAPI()
+  const categoryFilter = document.querySelector('.active_btn')
 
-    const res = await tastyTreatsAPI.loadRecipes()
-    if(res.data['results'].length > 0){
-        addRecipes(res.data['results'])
-    }
-    else{
-        Notify.failure('No recipes found');
-    }
+  tasty.time = timeSelectEl.value
+  if (categoryFilter !== null){
+    tasty.category = categoryFilter.textContent;
+  }
+  tasty.area = areaSelectElement.value
+  tasty.ingredient = ingredientsSelectElement.value;
+  // Add any further actions needed here
+  tasty.title = searchSelectEl.value.trim()
+
+
+  const res = await tasty.loadRecipes()
+  if(res.data['results'].length > 0){
+    addRecipes(res.data['results'])
+  }
+  else{
+    Notify.failure('No recipes found');
+  }
 }
 
 searchSelectEl.addEventListener('input', () =>{
-    if(searchSelectEl.value.trim() != ''){
-        document.querySelector('.icon-search').style.fill = '#9BB537'
-    }
-    else{
-        document.querySelector('.icon-search').style.fill = '#05050580'
-    }
+  if(searchSelectEl.value.trim() != ''){
+    document.querySelector('.icon-search').style.fill = '#9BB537'
+  }
+  else{
+    document.querySelector('.icon-search').style.fill = '#05050580'
+  }
 })
 
-searchSelectEl.addEventListener('change', _.debounce(() => {
+
+searchSelectEl.addEventListener('input', _.debounce((e) => {
+    e.preventDefault()
     recipesReq()
 }, 300, {leading : false, trailing : true}))
 
-areaSelectElement.addEventListener('change', _.debounce(() => {
+areaSelectElement.addEventListener('change', () => {
     recipesReq()
-}, 300, {leading : false, trailing : true}))
+})
 
-ingredientsSelectElement.addEventListener('change', _.debounce(() => {
+ingredientsSelectElement.addEventListener('change', () => {
     recipesReq()
-}, 300, {leading : false, trailing : true}))
+})
 
-timeSelectEl.addEventListener('change', _.debounce(() => {
+timeSelectEl.addEventListener('change', () => {
     recipesReq()
-}, 300, {leading : false, trailing : true}))
+})
+
 
 resetFiltersEl.addEventListener('click', () =>{
-    document.querySelector('.icon-search').style.fill = '#05050580'
-    areaSlimSelect.setSelected('')
-    ingredientSlimSelect.setSelected('')
-    timeSlimSelect.setSelected('')
-    searchSelectEl.value = ''
+  document.querySelector('.icon-search').style.fill = '#05050580'
+  areaSlimSelect.setSelected('')
+  ingredientSlimSelect.setSelected('')
+  timeSlimSelect.setSelected('')
+  searchSelectEl.value = ''
 })
+
+formEl-addEventListener('submit', (e) =>{
+    e.preventDefault()
+    recipesReq()
+});

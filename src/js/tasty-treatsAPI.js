@@ -1,5 +1,3 @@
-'use strict';
-
 import axios from 'axios';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/';
@@ -21,6 +19,10 @@ export class testyTreatsAPI {
     } else if (windowWidth > 1280) {
       this.limit = 9;
     }
+    this.time = (this.time !== null && this.time !== undefined && this.time !== '' && this.time !== '0 min') ? this.time.slice(0, 2) : '';
+    this.area = (this.area !== null && this.area !== undefined && this.area !== '' && this.area !== 'Region') ? this.area : '';
+    this.ingredient = (this.ingredient !== null && this.ingredient !== undefined && this.ingredient !== '' && this.ingredient !== 'Product') ? this.ingredient : '';
+    this.category = (this.category !== null && this.category !== undefined && this.category !== '') ? this.category : '';
     return await axios.get(`${BASE_URL}recipes/`, {
       params: {
         title: this.title,

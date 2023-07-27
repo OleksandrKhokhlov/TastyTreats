@@ -24,9 +24,9 @@ export default function renderCards(recipes) {
     }" class="recipe" style="background-image: linear-gradient(1deg, rgba(5, 5, 5, 0.60) 0%, rgba(5, 5, 5, 0.00) 100%), url(${
         recipe.thumb
       })">
-      <button class="recipe-heart-btn favorite-heard-btn">
-        <svg class="recipe-heart-icon favorite-heard-icon" width="22" height="22">
-          <use href="images/sprite.svg#icon-heart"></use>
+      <button class="recipe-heart-btn">
+        <svg class="recipe-heart-icon" width="22" height="22">
+          <use href="./images/sprite.svg#icon-heart"></use>
         <svg>
       </button>
       <div class="recipe-info">
@@ -43,7 +43,7 @@ export default function renderCards(recipes) {
                   recipe.rating,
                   1
                 )}" width="14" height="14">
-                  <use href="images/sprite.svg#icon-star"></use>
+                  <use href="./images/sprite.svg#icon-star"></use>
                 </svg>
               </li>
               <li class="recipe-rating-star-item">
@@ -51,7 +51,7 @@ export default function renderCards(recipes) {
                   recipe.rating,
                   2
                 )}" width="14" height="14">
-                  <use href="images/sprite.svg#icon-star"></use>
+                  <use href="./images/sprite.svg#icon-star"></use>
                 </svg>
               </li>
               <li class="recipe-rating-star-item">
@@ -59,7 +59,7 @@ export default function renderCards(recipes) {
                   recipe.rating,
                   3
                 )}" width="14" height="14">
-                  <use href="images/sprite.svg#icon-star"></use>
+                  <use href="./images/sprite.svg#icon-star"></use>
                 </svg>
               </li>
               <li class="recipe-rating-star-item">
@@ -67,7 +67,7 @@ export default function renderCards(recipes) {
                   recipe.rating,
                   4
                 )}" width="14" height="14">
-                  <use href="images/sprite.svg#icon-star"></use>
+                  <use href="./images/sprite.svg#icon-star"></use>
                 </svg>
               </li>
               <li class="recipe-rating-star-item">
@@ -75,7 +75,7 @@ export default function renderCards(recipes) {
                   recipe.rating,
                   5
                 )}" width="14" height="14">
-                  <use href="images/sprite.svg#icon-star"></use>
+                  <use href="./images/sprite.svg#icon-star"></use>
                 </svg>
               </li>
             </ul>

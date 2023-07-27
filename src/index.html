@@ -15,7 +15,6 @@
     <header>
       <!------------------------- Header --------------------------->
       <load src="./partials/header.html" />
-      <a href="./favorites.html">fssfdfs</a>
     </header>
     <!-------------------------- Main ------------------------------->
     <main>
@@ -23,14 +22,21 @@
       <load src="./partials/loader.html" />
       <!-- Hero -->
       <load src="./partials/hero.html" />
-      <!-- categories -->
-      <load src="./partials/categories.html" />
-      <!-- search -->
-      <load src="./partials/search.html" />
-      <!-- recipes -->
-      <load src="./partials/recipes.html" />
-      <!-- popular recipes -->
-      <load src="./partials/popular-recipes.html" />
+
+      <div class="main-wrapper container">
+        <aside class="left-block">
+          <!-- categories -->
+          <load src="./partials/categories.html" />
+          <!-- popular recipes -->
+          <load src="./partials/popular-recipes.html" />
+        </aside>
+        <div class="right-block">
+          <!-- search -->
+          <load src="./partials/search.html" />
+          <!-- recipes -->
+          <load src="./partials/recipes.html" />
+        </div>
+      </div>
     </main>
     <!--------------------- modal windows -------------------------->
     <!-- recipe modal -->

@@ -1,51 +1,51 @@
-
-
-<form class="search-filters">
-   <label class="search-label">
+<section class="search-section">
+  <div class="search-container">
+    <form class="search-filters">
+      <label class="search-label">
         Search
         <svg class="icon-search">
-            <use href='./images/sprite.svg#icon-search'></use>
+          <use href="./images/sprite.svg#icon-search"></use>
         </svg>
-        <input type="text" id="search-key" name="search-key" placeholder="Enter text" >
-    </label>
+        <input
+          type="text"
+          id="search-key"
+          name="search-key"
+          placeholder="Enter text"
+        />
+      </label>
 
-    
-
-    <label class="time-label">
+      <label class="time-label">
         Time
-            <select name="time-key" id="time-key">
-                <option data-placeholder="true"></option>
+        <select name="time-key" id="time-key">
+          <option data-placeholder="true"></option>
 
-                <option value="10">10 min</option>
-                <option value="20">20 min</option>
-                <option value="30">30 min</option>
-                <option value="40">40 min</option>
-            </select>
-        
-    </label>
+          <option value="10">10 min</option>
+          <option value="20">20 min</option>
+          <option value="30">30 min</option>
+          <option value="40">40 min</option>
+        </select>
+      </label>
 
-   <label class="area-label">
+      <label class="area-label">
         Area
-            <select name="area-key" id="area-key" >
-                <option data-placeholder="true"></option>
-            </select>
-        
-    </label>
+        <select name="area-key" id="area-key">
+          <option data-placeholder="true"></option>
+        </select>
+      </label>
 
-    
-
-    <label class="ingredients-label">
+      <label class="ingredients-label">
         Ingredients
-            <select name="ingredients-key" id="ingredients-key" >
-                <option data-placeholder="true"></option>
-            </select>
-    </label>
+        <select name="ingredients-key" id="ingredients-key">
+          <option data-placeholder="true"></option>
+        </select>
+      </label>
 
-    <p class="filter-reset">
+      <p class="filter-reset">
         <svg class="reset-icon">
-            <use href="./images/sprite.svg#icon-search-close"></use>
-        </svg>   
+          <use href="./images/sprite.svg#icon-search-close"></use>
+        </svg>
         Reset the filter
-    </p>
-    
-</form>
+      </p>
+    </form>
+  </div>
+</section>

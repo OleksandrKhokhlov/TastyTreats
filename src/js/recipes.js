@@ -1,10 +1,10 @@
 import renderCards from "./render-recipes-cards";
 import {testyTreatsAPI} from "./tasty-treatsAPI.js";
 import { pagination } from "./pagin";
-import {favoritesJSON, onHeartBtnClick } from "./local-storage";
+import {onHeartBtnClick, fillingHeartThatWasAddedToFavorites } from "./local-storage";
 
 const recipesEl = document.querySelector('.recipes-block');
-
+const cssLoaderRef = document.querySelector('span.loader')
 export function addRecipes(recipes) {
   if(recipesEl.children.length !== 0) {
     destroyRecipesBlock();
@@ -12,46 +12,46 @@ export function addRecipes(recipes) {
 
   recipesEl.insertAdjacentHTML('beforeend', renderCards(recipes));
   fillingHeartThatWasAddedToFavorites();
-  
+
 }
+let category_id = null
+const ingredientsSelectElement = document.querySelector('#ingredients-key');
+ingredientsSelectElement.addEventListener('change', () => {
+  if (ingredientsSelectElement.value !== ''){
+    category_id = ingredientsSelectElement.value;
+  }
+});
 export function loadMoreRecipes() {
   pagination.on('afterMove', async eventData => {
     const categoryFilter = document.querySelector('.active_btn')
+    const timeFilter = document.querySelector(".time-label > div > div.ss-values > div")
+    const areaFilter = document.querySelector(".area-label > div > div.ss-values > div")
     const testy = new testyTreatsAPI();
     try {
+      testy.ingredient = category_id;
+      testy.time = timeFilter.textContent
+      testy.area = areaFilter.textContent
       testy.page = eventData.page;
       if (categoryFilter !== null){
         testy.category = categoryFilter.textContent;
       }
+      cssLoaderRef.classList.remove('visually-hidden')
       const response = await testy.loadRecipes();
+      console.log(response)
+      cssLoaderRef.classList.add('visually-hidden')
       addRecipes(response.data.results);
       return await response.data;
     }
     catch(error) {
       console.log(error);
     }
-});
+  });
 }
-function destroyRecipesBlock() {
+export function destroyRecipesBlock() {
   [...recipesEl.children].forEach(recipe => {
     recipe.remove();
   });
 }
-export function fillingHeartThatWasAddedToFavorites() {
-  try {
-    const favoritesFromLocalStorage = JSON.parse(favoritesJSON);
-    if(favoritesFromLocalStorage === null) {
-      return;
-    }
-    favoritesFromLocalStorage.map(favRecipe=> {
-    const articleEl = document.querySelector(`article[id="${favRecipe._id}"]`);
-    const recipeHeartIconEl = articleEl.querySelector('.recipe-heart-icon');
-    recipeHeartIconEl.classList.add('recipe-heart-icon-in-favorites');
-    })
-  }
-  catch(error) {
-    console.log(error);
-  }
-}
+
 loadMoreRecipes();
 recipesEl.addEventListener('click', onHeartBtnClick);

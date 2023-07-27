@@ -37,6 +37,22 @@ export function deleteRecipeFromFavorites(recipeId) {
   localStorage.setItem("favorites", JSON.stringify(recipesThatAddedToFavorites));
   wasDeleted = true;
 }
+export function fillingHeartThatWasAddedToFavorites() {
+  try {
+    const favoritesFromLocalStorage = JSON.parse(favoritesJSON);
+    if(favoritesFromLocalStorage === null) {
+      return;
+    }
+    favoritesFromLocalStorage.map(favRecipe=> {
+    const articleEl = document.querySelector(`article[id="${favRecipe._id}"]`);
+    const recipeHeartIconEl = articleEl.querySelector('.recipe-heart-icon');
+    recipeHeartIconEl.classList.add('recipe-heart-icon-in-favorites');
+    })
+  }
+  catch(error) {
+    console.log(error);
+  }
+}
  async function recipesInFavorites(idRecipe) {
   const testy = new testyTreatsAPI();
     try {
