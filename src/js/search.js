@@ -3,6 +3,10 @@ import _ from "lodash"
 import { testyTreatsAPI } from "./tasty-treatsAPI";
 import {addRecipes} from "./recipes.js";
 import {Notify} from 'notiflix';
+
+
+const formEl = document.querySelector('.search-filters')
+
 const searchSelectEl = document.querySelector('#search-key');
 const timeSelectEl = document.querySelector('#time-key')
 const areaSelectElement = document.querySelector('#area-key');
@@ -110,21 +114,24 @@ searchSelectEl.addEventListener('input', () =>{
   }
 })
 
-searchSelectEl.addEventListener('change', _.debounce(() => {
-  recipesReq()
+
+searchSelectEl.addEventListener('input', _.debounce((e) => {
+    e.preventDefault()
+    recipesReq()
 }, 300, {leading : false, trailing : true}))
 
-areaSelectElement.addEventListener('change', _.debounce(() => {
-  recipesReq()
-}, 300, {leading : false, trailing : true}))
+areaSelectElement.addEventListener('change', () => {
+    recipesReq()
+})
 
-ingredientsSelectElement.addEventListener('change', _.debounce(() => {
-  recipesReq()
-}, 300, {leading : false, trailing : true}))
+ingredientsSelectElement.addEventListener('change', () => {
+    recipesReq()
+})
 
-timeSelectEl.addEventListener('change', _.debounce(() => {
-  recipesReq()
-}, 300, {leading : false, trailing : true}))
+timeSelectEl.addEventListener('change', () => {
+    recipesReq()
+})
+
 
 resetFiltersEl.addEventListener('click', () =>{
   document.querySelector('.icon-search').style.fill = '#05050580'
@@ -133,3 +140,8 @@ resetFiltersEl.addEventListener('click', () =>{
   timeSlimSelect.setSelected('')
   searchSelectEl.value = ''
 })
+
+formEl-addEventListener('submit', (e) =>{
+    e.preventDefault()
+    recipesReq()
+});
