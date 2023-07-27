@@ -25,7 +25,7 @@ export default function renderCards(recipes) {
       })">
       <button class="recipe-heart-btn">
         <svg class="recipe-heart-icon" width="22" height="22">
-          <use href="/images/sprite.svg#icon-heart"></use>
+          <use href="./images/sprite.svg#icon-heart"></use>
         <svg>
       </button>
       <div class="recipe-info">

@@ -28,7 +28,8 @@ async function showInfo() {
                   </div>
                 </div>
                 <div class="big-dish swiper-item" style="background-image:url('${evt.topic.previewUrl}')"></div>
-            </div>`;
+            </div>
+            `;
     })
     .join('');
 
@@ -44,15 +45,9 @@ async function showInfo() {
       clickable: true,
     },
     // autoplay: {
-    //   delay: 2000,
+    //   delay: 4000,
     // },
     spaceBetween: 8,
     loop: true,
-    // slidesPerView: 3,
-    // slidesPerGroup: 3,
   });
 }
-
-// <div class="big-dish swiper-slide">
-//   <img class="img" src="${evt.topic.previewUrl}" loading="lazy" alt="${evt.topic.name}">
-// </div>`;
