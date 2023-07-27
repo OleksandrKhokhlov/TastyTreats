@@ -3,6 +3,7 @@ import { testyTreatsAPI } from './tasty-treatsAPI.js';
 import { addRecipes } from './recipes.js';
 let lastClickedMenuItem = null;
 
+const cssLoaderRef = document.querySelector('span.loader')
 async function fetchRecipesCategories() {
   const testy = new testyTreatsAPI();
   try {
@@ -13,25 +14,48 @@ async function fetchRecipesCategories() {
     return [];
   }
 }
+let category_id = null
+const ingredientsSelectElement = document.querySelector('#ingredients-key');
+ingredientsSelectElement.addEventListener('change', () => {
+  if (ingredientsSelectElement.value !== ''){
+    category_id = ingredientsSelectElement.value;
+  }
+});
 async function fetchRecipeDetails(recipeName) {
   getRecipesButton.classList.remove('btn-active');
   const testyDetails = new testyTreatsAPI();
   try {
+    const timeFilter = document.querySelector(".time-label > div > div.ss-values > div")
+    const areaFilter = document.querySelector(".area-label > div > div.ss-values > div")
     testyDetails.category = recipeName;
+    testyDetails.ingredient = category_id;
+    testyDetails.time = timeFilter.textContent
+    testyDetails.area = areaFilter.textContent
     const response = await testyDetails.loadRecipes();
+    cssLoaderRef.classList.remove('visually-hidden')
     addRecipes(response.data['results']);
+    cssLoaderRef.classList.add('visually-hidden')
     // return await response.data;
   } catch (error) {
     Notify.failure('Error fetching recipe details');
     return null;
   }
 }
-async function fetchAllRecipes() {
+export async function fetchAllRecipes() {
   getRecipesButton.classList.add('btn-active');
-  const testy = new testyTreatsAPI();
   try {
+    const testy = new testyTreatsAPI();
+    const timeFilter = document.querySelector(".time-label > div > div.ss-values > div")
+    const areaFilter = document.querySelector(".area-label > div > div.ss-values > div")
+    if (timeFilter !== null || areaFilter !== null){
+      testy.ingredient = category_id;
+      testy.time = timeFilter.textContent
+      testy.area = areaFilter.textContent
+    }
+    cssLoaderRef.classList.remove('visually-hidden')
     const response = await testy.loadRecipes();
     addRecipes(response.data['results']);
+    cssLoaderRef.classList.add('visually-hidden')
     // return await response.data;
   } catch (error) {
     Notify.failure('Error fetching recipe details');
