@@ -23,6 +23,9 @@ ingredientsSelectElement.addEventListener('change', () => {
   if (ingredientsSelectElement.value !== ''){
     category_id = ingredientsSelectElement.value;
   }
+  else{
+    category_id = null
+  }
 });
 export function loadMoreRecipes() {
   pagination.on('afterMove', async eventData => {
@@ -38,10 +41,9 @@ export function loadMoreRecipes() {
       if (categoryFilter !== null){
         testy.category = categoryFilter.textContent;
       }
-     
+
       cssLoaderRef.classList.remove('visually-hidden')
       const response = await testy.loadRecipes();
-      console.log(response)
       cssLoaderRef.classList.add('visually-hidden')
       addRecipes(response.data.results);
       return await response.data;
