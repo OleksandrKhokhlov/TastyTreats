@@ -1,7 +1,4 @@
-import { testyTreatsAPI } from "./tasty-treatsAPI";
-
 const backdropRec = document.querySelector('.backdrop-see-recipe');
-const openSeeBtn = document.querySelector('.recipe-btn');
 const closeSeeBtn =  document.querySelector('[data-modal-close]');
 const modal = document.querySelector('[data-modal-recipe]');
 const nameRecipe = document.querySelector('.name-recipe')
