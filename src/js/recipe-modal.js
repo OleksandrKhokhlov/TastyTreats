@@ -14,29 +14,13 @@ const tagsEl = document.querySelector('.tags');
 const ingrEl = document.querySelector('.ingredients');
 const cardBlockEl = document.querySelector('.recipes-block')
 
-
-cardBlockEl.addEventListener('click', onCard);
-// setInterval(() => {
-//   openSeeBtn.addEventListener('click', onCard);
-// }, 1000);
-
-
 closeSeeBtn.addEventListener('click', closeModal);
-
-// function onClick() {
-//   setTimeout(
-//     console.log('xcfvg')
-//   , 50);
-  
-// }
-
 
 function closeBackdrop(e) {
   if (e.target === modal) {
      closeModal()
    }
 }
-
 
 function keyDown(e) {
   if (e.key === 'Escape') {
@@ -63,12 +47,8 @@ async function loadRecipesById(id) {
   return await resp.json();
 }
 
-
-
 async function getRecipeCard(id) {
-  // const testy = new testyTreatsAPI();
-    try {
-      // const recipe = await testy.loadRecipesById(id);
+     try {
       const recipe = await loadRecipesById(id); 
       mediaEl.innerHTML = getMedia(recipe.youtube, recipe.thumb, recipe.title);
       nameRecipe.textContent = recipe.title;
@@ -145,18 +125,23 @@ function goldStars(recipe) {
       }
     }
 }
-
-function onCard(e) {
-  setTimeout(() => {
-    if (e.target.hasAttribute('id')) 
-    openModal(e.target);
-  }, 100);
-    
-}
    
 function openModal(target) {
-  getRecipeCard(target.getAttribute('id'));
+  getRecipeCard(target.closest('article').getAttribute("id"));
   modal.classList.toggle('visually-hidden');
   document.addEventListener('keydown', keyDown);
   backdropRec.addEventListener('click', closeBackdrop);
 }
+
+
+function onSeeBtnClick(e) {
+  const recipeSeeBtnEl = e.target.closest('.recipe-btn');
+  if (!recipeSeeBtnEl) {
+    return;
+  };
+  if (e.target.closest('article').hasAttribute("id")) 
+  openModal(e.target);
+
+};
+
+cardBlockEl.addEventListener('click', onSeeBtnClick);
