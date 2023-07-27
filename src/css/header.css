@@ -17,11 +17,7 @@ a {
   font-size: 12px;
   font-style: normal;
 }
-.item-nav:active,
-.item-nav:visited,
-.item-nav:focus {
-  color: #9bb537; /* Колір тексту для активної, відвіданої та вибраної сторінки */
-}
+
 .header {
   padding-top: 25px;
   padding-bottom: 85px;
@@ -129,22 +125,20 @@ a {
   margin: 0;
 }
 .item-nav {
+  font-family: Inter;
   color: var(--pr-text-DT-color);
   font-size: 12px;
-  font-style: normal;
-  line-height: normal;
   transition: color var(--transition-dur-and-func);
 }
-.item-nav:hover,
-.item-nav:focus {
-  color: #9bb537;
-}
+
 .down-content {
   position: absolute;
   bottom: 20px;
   left: 20px;
 }
-
+.nav-link.current {
+  color: var(--accent-color);
+}
 .hamburger-social-list {
   margin: 0;
   padding: 0;
