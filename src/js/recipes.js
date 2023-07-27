@@ -1,10 +1,14 @@
 import renderCards from "./render-recipes-cards";
 import {testyTreatsAPI} from "./tasty-treatsAPI.js";
 import { pagination } from "./pagin";
-import {onHeartBtnClick, fillingHeartThatWasAddedToFavorites } from "./local-storage";
+import {onHeartBtnClick, fillingHeartThatWasAddedToFavorites, onAddToFavoritesBtnClick } from "./local-storage";
 
 const recipesEl = document.querySelector('.recipes-block');
-const cssLoaderRef = document.querySelector('span.loader')
+const cssLoaderRef = document.querySelector('span.loader');
+let category_id = null;
+const ingredientsSelectElement = document.querySelector('#ingredients-key');
+const addToFavoriteBtn = document.querySelector('#add-favorite');
+
 export function addRecipes(recipes) {
   if(recipesEl.children.length !== 0) {
     destroyRecipesBlock();
@@ -14,8 +18,7 @@ export function addRecipes(recipes) {
   fillingHeartThatWasAddedToFavorites();
 
 }
-let category_id = null
-const ingredientsSelectElement = document.querySelector('#ingredients-key');
+
 ingredientsSelectElement.addEventListener('change', () => {
   if (ingredientsSelectElement.value !== ''){
     category_id = ingredientsSelectElement.value;
@@ -55,3 +58,4 @@ export function destroyRecipesBlock() {
 
 loadMoreRecipes();
 recipesEl.addEventListener('click', onHeartBtnClick);
+addToFavoriteBtn.addEventListener('click', onAddToFavoritesBtnClick)
