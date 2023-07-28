@@ -16,6 +16,10 @@ ul {
     list-style: none;
 }
 
+/* .popular-recipe {
+    padding-top: 40px;
+} */
+
 /* .popular-container {
     width: 332px;
 } */
@@ -23,7 +27,7 @@ ul {
 .popular-title {
     color: var(--pr-text-color);
     font-weight: 600;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.3;
     margin-bottom: 20px;
     text-align: left;
@@ -38,15 +42,21 @@ ul {
     transition: all var(--transition-dur-and-func);
 }
 
+.popular-item:nth-child(n + 3) {
+    display: none;
+}
+
 .popular-item:not(:last-child) {
     margin-bottom: 24px;
 }
 
 .popular-item-img {
     margin-right: 16px;
+    border-radius: 10px;
 }
 
 .popular-item-title {
+    text-transform: uppercase;
     color: var(--pr-text-color);
     font-weight: 600;
     font-size: 14px;
@@ -64,10 +74,6 @@ ul {
     /*1.3*/
     letter-spacing: 0em;
     text-align: left;
-}
-
-.popular-item-34 {
-    display: none;
 }
 
 .popular-item:is(:hover, :focus) {
@@ -91,6 +97,9 @@ ul {
     }
     .popular-item {
         width: 176px;
+    }
+    .popular-item:nth-child(n + 3) {
+        display: flex;
     }
     .popular-item:not(:last-child) {
         margin-bottom: 16px;
@@ -119,7 +128,7 @@ ul {
         width: 235px;
     }
     .popular-title {
-        font-size: 24px;
+        font-size: 23px;
         line-height: 1.16;
     }
     .popular-item {
