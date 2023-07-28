@@ -18,6 +18,12 @@ listFavorites.addEventListener('click', onHeartBtnClick);
 //localStorage
 const recipesFromLocalStorage = JSON.parse(localStorage.getItem('favorites'));
 
+if (recipesFromLocalStorage === null) {
+  favoritesMessError.classList.remove('visually-hidden');
+  categoriesFavorites.classList.add('visually-hidden');
+  heroFavorites.classList.add('visually-hidden');
+}
+
 //Категорії з localStorage
 function createAllCategireisList() {
   const AllCategireisListItem = recipesFromLocalStorage
@@ -31,6 +37,7 @@ function createAllCategireisList() {
 
   categoriesFavorites.insertAdjacentHTML('beforeend', AllCategireisListItem);
 }
+
 createAllCategireisList();
 
 //Рецепти з localStorage
@@ -136,4 +143,5 @@ function renderCardsFavorites() {
   }
   fillingHeartThatWasAddedToFavorites();
 }
+
 renderCardsFavorites();
