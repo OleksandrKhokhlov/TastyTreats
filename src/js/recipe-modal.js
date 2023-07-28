@@ -89,13 +89,15 @@ allowfullscreen
 function getTags(tags) {
   if(!tags){
     return;
-  }
+  } 
   let markup = '';
       for (const tag of tags) {
-         markup += `<li class="recipe-tag">#${tag}</li>`; 
+        markup += `<li class="recipe-tag">#${tag}</li>`; 
       }
-       return markup;  
+       return markup;    
 }
+
+
 
 function getIngredients(ingredients) {
   let markup = '';
