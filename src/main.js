@@ -1,5 +1,6 @@
 // приклад підключення
 // import './js/swiper';
+import './js/change-theme'
 import './js/pagin';
 import './js/header';
 import './js/hero';
