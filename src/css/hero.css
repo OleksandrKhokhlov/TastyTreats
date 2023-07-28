@@ -94,7 +94,7 @@
 
 .swiper .swiper-pagination {
     bottom: -5px;
-    left: -37px;
+    left: -55px;
 }
 
  .swiper-pagination-bullet {
@@ -225,7 +225,7 @@
     }
 
     .swiper .swiper-pagination {
-        left: -84px;
+        left: -110px;
     }
 }
 
@@ -264,8 +264,12 @@
         width: 304px;
     }
 
+    .event-info {
+        padding-top: 40px;
+    }
+
     .event-descr {
-        margin-top: 32px;
+        margin-top: 28px;
     }
 
     .big-dish {
@@ -275,6 +279,6 @@
     }
 
     .swiper .swiper-pagination {
-        left: -66px;
+        left: -105px;
     }
 }
