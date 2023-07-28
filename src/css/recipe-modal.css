@@ -33,10 +33,10 @@
 }  
 @media screen and (min-width: 768px) {
     .modal_recipe{
-    min-width: 531px;
+    width: 531px;
      max-height: 700px;
      padding: 32px;
-     
+     overflow-x: hidden;
     
   }
 }
