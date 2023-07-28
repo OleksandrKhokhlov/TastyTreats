@@ -248,7 +248,15 @@
         width: 446px;
     }
 
-    .swiper {
+    .main-swiper-wrapper {
+        position: relative;
+        width: 851px;
+        height: 442px;
+    }
+
+    .swiper {position: absolute;
+        top: 0;
+        left: 0;
         width: 851px;
     }
 
