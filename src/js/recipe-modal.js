@@ -31,6 +31,7 @@ function closeModal() {
   modal.classList.toggle('visually-hidden');
   document.removeEventListener('keydown', keyDown);
   modal.removeEventListener('click', closeBackdrop);
+  document.body.style.overflow = '';
 }
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes/';
 
@@ -59,7 +60,6 @@ async function getRecipeCard(id) {
     tagsEl.innerHTML = getTags(recipe.tags);
     instructEl.textContent =recipe.instructions;
     modalRecipeWithId.setAttribute('id', recipe._id);
-    toggleBodyScroll();
     goldStars(recipe);
   } catch (error) {
     console.log(error)
@@ -110,13 +110,7 @@ function getIngredients(ingredients) {
   return markup;  
 }
 
-function toggleBodyScroll() {
-  if (document.body.style.overflow === 'visually-hidden') {
-    document.body.style.overflow = '';
-  } else {
-    document.body.style.overflow = 'visually-hidden';
-  }
-}
+
 function goldStars(recipe) {
     for (let i = 0; i < 5; i++) {
       if (i < Math.round(recipe.rating)) {
@@ -132,6 +126,7 @@ function openModal(target) {
   modal.classList.toggle('visually-hidden');
   document.addEventListener('keydown', keyDown);
   backdropRec.addEventListener('click', closeBackdrop);
+  document.body.style.overflow = 'hidden';
 }
 
 function onSeeBtnClick(e) {

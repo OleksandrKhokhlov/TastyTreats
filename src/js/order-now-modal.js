@@ -44,13 +44,13 @@ refs.forma.addEventListener('submit', function (e) {
 
 function openModalOpen() {
   window.addEventListener('keydown', onEscPress);
-  document.body.classList.add('overflowHidden');
+  document.body.style.overflow = 'hidden';
   refs.backdrop.classList.add('active');
   refs.modal.classList.add('active');
 }
 
 function closeModalClose() {
-  document.body.classList.remove('overflowHidden');
+  document.body.style.overflow = '';
   window.removeEventListener('keydown', onEscPress);
   refs.backdrop.classList.remove('active');
   refs.modal.classList.remove('active');
