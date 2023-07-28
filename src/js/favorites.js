@@ -22,6 +22,9 @@ if (recipesFromLocalStorage === null) {
   favoritesMessError.classList.remove('visually-hidden');
   categoriesFavorites.classList.add('visually-hidden');
   heroFavorites.classList.add('visually-hidden');
+  if (window.innerWidth > 768) {
+    heroFavorites.classList.remove('visually-hidden');
+  }
 }
 
 //Категорії з localStorage
