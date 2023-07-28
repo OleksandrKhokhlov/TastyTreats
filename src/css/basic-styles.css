@@ -1,13 +1,12 @@
-:root {
+html.light {
   /* --Accent-- */
   --bcg-body-color: #f8f8f8;
-  --bcg-body-DT-color: #161616;
   --accent-color: #9bb537;
   --rating-color: #eea10c;
   --switch-color-uncheck: rgba(160, 158, 160, 0.6);
   --rating-color-LT-uncheck: rgba(248, 248, 248, 0.1);
   --rating-color-DT-uncheck: rgba(255, 255, 255, 0.1);
-
+  --white-color: #fff;
   /* --Text-- */
   --pr-text-color: #050505;
   --pr-text-DT-color: #ffffff;
@@ -17,6 +16,34 @@
   /* --Description-- */
   --popular-text-desc-color: rgba(5, 5, 5, 0.8);
   --card-desc-DT-text-color: rgba(255, 255, 255, 0.8);
+
+  --transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.dark {
+  /* --Accent-- */
+  --bcg-body-color: #161616;
+  --accent-color: #9bb537;
+  --rating-color: #eea10c;
+  --switch-color-uncheck: rgba(160, 158, 160, 0.6);
+  --rating-color-LT-uncheck: rgba(248, 248, 248, 0.1);
+  --rating-color-DT-uncheck: rgba(255, 255, 255, 0.1);
+
+  /* --Text-- */
+  --pr-text-color: #fff;
+  --pr-text-DT-color: #fff;
+  --sec-text-color: #f8f8f8;
+  --filtr-text-color: rgba(5, 5, 5, 0.5);
+  --filtr-text-DT-color: rgba(255, 255, 255, 0.5);
+  /* --Description-- */
+  --popular-text-desc-color: #fff;
+  --card-desc-DT-text-color: rgba(255, 255, 255, 0.8);
+  --primary-text-CH-color: #fff;
 
   --transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
