@@ -45,7 +45,7 @@ async function showInfo() {
       clickable: true,
     },
     // autoplay: {
-    //   delay: 4000,
+    //   delay: 5000,
     // },
     spaceBetween: 8,
     loop: true,

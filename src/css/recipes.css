@@ -51,7 +51,7 @@
   min-height: 105px;
 }
 .recipe:not(:last-child) {
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 .recipe-name {
   width: 100%;

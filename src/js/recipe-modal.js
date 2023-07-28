@@ -9,7 +9,8 @@ const starRatingEl = document.querySelectorAll('.icon-star')
 const mediaEl = document.querySelector('.media');
 const tagsEl = document.querySelector('.tags');
 const ingrEl = document.querySelector('.ingredients');
-const cardBlockEl = document.querySelector('.recipes-block')
+const cardBlockEl = document.querySelector('.recipes-block');
+const modalRecipeWithId = document.querySelector('.modal_recipe');
 
 closeSeeBtn.addEventListener('click', closeModal);
 
@@ -30,6 +31,7 @@ function closeModal() {
   modal.classList.toggle('visually-hidden');
   document.removeEventListener('keydown', keyDown);
   modal.removeEventListener('click', closeBackdrop);
+  document.body.style.overflow = '';
 }
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes/';
 
@@ -57,7 +59,7 @@ async function getRecipeCard(id) {
     ingrEl.innerHTML =  getIngredients(recipe.ingredients);
     tagsEl.innerHTML = getTags(recipe.tags);
     instructEl.textContent =recipe.instructions;
-    toggleBodyScroll();
+    modalRecipeWithId.setAttribute('id', recipe._id);
     goldStars(recipe);
   } catch (error) {
     console.log(error)
@@ -87,13 +89,15 @@ allowfullscreen
 function getTags(tags) {
   if(!tags){
     return;
-  }
+  } 
   let markup = '';
       for (const tag of tags) {
-         markup += `<li class="recipe-tag">#${tag}</li>`; 
+        markup += `<li class="recipe-tag">#${tag}</li>`; 
       }
-       return markup;  
+       return markup;    
 }
+
+
 
 function getIngredients(ingredients) {
   let markup = '';
@@ -106,13 +110,7 @@ function getIngredients(ingredients) {
   return markup;  
 }
 
-function toggleBodyScroll() {
-  if (document.body.style.overflow === 'visually-hidden') {
-    document.body.style.overflow = '';
-  } else {
-    document.body.style.overflow = 'visually-hidden';
-  }
-}
+
 function goldStars(recipe) {
     for (let i = 0; i < 5; i++) {
       if (i < Math.round(recipe.rating)) {
@@ -128,6 +126,7 @@ function openModal(target) {
   modal.classList.toggle('visually-hidden');
   document.addEventListener('keydown', keyDown);
   backdropRec.addEventListener('click', closeBackdrop);
+  document.body.style.overflow = 'hidden';
 }
 
 function onSeeBtnClick(e) {

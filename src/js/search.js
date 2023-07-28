@@ -87,6 +87,7 @@ const recipesReq = async () => {
   const categoryFilter = document.querySelector('.active_btn');
 
   tasty.time = timeSelectEl.value;
+
   if (categoryFilter !== null) {
     tasty.category = categoryFilter.textContent;
   }

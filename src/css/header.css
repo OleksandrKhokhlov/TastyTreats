@@ -16,9 +16,11 @@ a {
   color: var(--popular-text-desc-color);
   font-size: 12px;
   font-style: normal;
+  transition: color var(--transition-dur-and-func);
 }
 
 .header {
+  height: 97px;
   padding-top: 25px;
   padding-bottom: 85px;
 }
@@ -129,6 +131,10 @@ a {
   color: var(--pr-text-DT-color);
   font-size: 12px;
   transition: color var(--transition-dur-and-func);
+}
+
+.nav-link:is(:hover, :focus) {
+  color: var(--accent-color);
 }
 
 .down-content {
@@ -244,6 +250,7 @@ a {
 
 @media screen and (min-width: 1200px) {
   .header {
+    height: 100px;
     padding-top: 45px;
     padding-bottom: 94px;
   }
@@ -254,6 +261,7 @@ a {
   .header-fav {
     padding-bottom: 40px;
   }
+  
   .theme-switch-container {
     display: inline-block;
     position: relative;

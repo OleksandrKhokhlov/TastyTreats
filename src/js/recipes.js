@@ -18,11 +18,16 @@ export function addRecipes(recipes) {
   recipesEl.insertAdjacentHTML('beforeend', renderCards(recipes));
   fillingHeartThatWasAddedToFavorites();
 }
+
 let category_id = null;
 const ingredientsSelectElement = document.querySelector('#ingredients-key');
+
 ingredientsSelectElement.addEventListener('change', () => {
   if (ingredientsSelectElement.value !== '') {
     category_id = ingredientsSelectElement.value;
+  }
+  else{
+    category_id = null
   }
 });
 
@@ -37,6 +42,7 @@ export function loadMoreRecipes() {
     );
     const testy = new testyTreatsAPI();
     try {
+      testy.title = searchSelectEl.value.trim();
       testy.ingredient = category_id;
       testy.time = timeFilter.textContent;
       testy.area = areaFilter.textContent;

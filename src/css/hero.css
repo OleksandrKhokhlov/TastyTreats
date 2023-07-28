@@ -26,7 +26,7 @@
 }
 
 .hero-title {
-    padding-bottom: 14px;
+    margin-bottom: 14px;
     color: var(--pr-text-color);
     font-weight: 600;
 }
@@ -38,7 +38,7 @@
 }
 
 .hero-description {
-    padding-bottom: 28px;
+    margin-bottom: 28px;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.28;
@@ -94,7 +94,7 @@
 
 .swiper .swiper-pagination {
     bottom: -5px;
-    left: -37px;
+    left: -55px;
 }
 
  .swiper-pagination-bullet {
@@ -133,14 +133,14 @@
     text-transform: uppercase;
     margin: 0;
     padding: 0;
-    padding-top: 20px;
+    margin-top: 20px;
     max-width: 210px;    
 }
 
 .event-country {
     display: block;
     margin: 0;
-    padding-top: 8px;
+    margin-top: 8px;
     color: rgba(248, 248, 248, 0.2);
     font-size: 8px;
     font-weight: 400;
@@ -165,7 +165,7 @@
     }
 
     .hero-description {
-        padding-bottom: 32px;
+        margin-bottom: 32px;
         font-size: 16px;
         line-height: 1.5;
     }
@@ -202,7 +202,7 @@
 
     .event-info {
         padding-top: 67px;
-        padding-bottom: 32px;
+        margin-bottom: 32px;
     }
 
     .event-descr {
@@ -210,7 +210,7 @@
         font-weight: 500;
         line-height: 1.28;
         /* padding-top: 32px; */
-        padding-top: 10px;
+        margin-top: 10px;
     }
 
     .event-country {
@@ -225,15 +225,22 @@
     }
 
     .swiper .swiper-pagination {
-        left: -84px;
+        left: -110px;
     }
 }
 
 @media screen and (min-width: 1200px) {
+    .container.hero-container {
+        width: 100%;
+        padding-right: 0;
+        overflow: hidden;
+    }
+
     .hero-div {
         display: flex;
         align-items: center;
         padding-bottom: 100px;
+        column-gap: 32px;
     }
     
     .hero-title, .hero-description {
@@ -241,16 +248,28 @@
         width: 446px;
     }
 
-    .small-dish {
-        width: 351px;
+    .main-swiper-wrapper {
+        position: relative;
+        width: 851px;
+        height: 442px;
+    }
+
+    .swiper {position: absolute;
+        top: 0;
+        left: 0;
+        width: 851px;
     }
 
     .small-dish .img {
         width: 304px;
     }
 
+    .event-info {
+        padding-top: 40px;
+    }
+
     .event-descr {
-        padding-top: 32px;
+        margin-top: 28px;
     }
 
     .big-dish {
@@ -260,6 +279,6 @@
     }
 
     .swiper .swiper-pagination {
-        left: -66px;
+        left: -105px;
     }
 }
