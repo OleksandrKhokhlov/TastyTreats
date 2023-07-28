@@ -34,6 +34,9 @@
 /* <!-- Favorites  --> */
 @import url('./favorites.css');
 
+/* Index */
+@import url('./index.css');
+
 /* <!----------------------------- Modal --------------------------------> */
 
 /* <!-- Recipe-modal --> */
@@ -47,3 +50,8 @@
 
 /* Pagination */
 @import url('./pagin.css');
+
+/* <!----------------------------- ScrollUp --------------------------------> */
+@import url('./btn-scrollup.css');
+/* <!------------------------------ loader ---------------------------------> */
+@import url('./loader.css');

@@ -1,9 +1,18 @@
-@import '../../node_modules/swiper/swiper.css';
-@import '../../node_modules/swiper/modules/pagination.css';
+@import '/../node_modules/swiper/swiper.css';
+@import '/../node_modules/swiper/modules/pagination.css';
+@import '/../node_modules/swiper/modules/autoplay.css';
 
 .hero-container * {
     margin: 0;
     padding: 0;
+}
+
+.hero-container {
+    overflow: hidden;
+}
+
+.hero-div {
+    padding-bottom: 80px;
 }
 
 .hero-wrapper {
@@ -17,18 +26,19 @@
 }
 
 .hero-title {
-    padding-bottom: 14px;
+    margin-bottom: 14px;
     color: var(--pr-text-color);
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .hero-title > span {
+    font-weight: 400;
     color: var(--accent-color);
     font-style: italic;
 }
 
 .hero-description {
-    padding-bottom: 28px;
+    margin-bottom: 28px;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.28;
@@ -49,51 +59,43 @@
     background-color: var(--accent-color);
 }
 
-/*--------------------------- cards ---------------------*/
-.hero-card-descr {
-    text-align: center;
-    color: rgba(248, 248, 248, 0.6);
-    font-size: 10px;
-    line-height: 1.4;
-    text-transform: uppercase;
-    margin: 0;
-    padding: 0;
-    padding-top: 20px;
-
+/*------------------------------ slider --------------------------------------------- */
+.swiper {
+    /* width: 335px; */
+    width: 496px;
+    height: 302px;
+    overflow: hidden;
 }
 
-.hero-country {
-    margin: 0;
-    padding-top: 8px;
-    color: rgba(248, 248, 248, 0.2);
-    font-size: 8px;
-    font-weight: 400;
-    line-height: 1.5;
+.swiper-wrapper {
+    width: 355px;
+    height: 100%;
 }
 
-/*------------------------------ slider--------------------------------------------- */
+.swiper-slide {
+    display: flex;
+    column-gap: 8px;
+    height: 280px;
+}
+
 .swiper-slide .img {
     max-width: 100%;
     width: 100%;
     height: 100%;
-    border-radius: 15px;
+    border-radius: inherit;
     object-fit: cover;
 }
 
-.swiper {
-    width: 355px;
-    height: 302px;
+.swiper-item {
+    border: 1px solid var(--accent-color);
+    border-radius: 15px;
+    background-color: var(--pr-text-color);
 }
 
-.swiper-wrapper {
-    height: 280px;
-    padding-bottom: 20px;
+.swiper .swiper-pagination {
+    bottom: -5px;
+    left: -37px;
 }
-
-.swiper-slide {
-    height: 100%;
-}
-
 
  .swiper-pagination-bullet {
     background-color: var(--pr-text-color);
@@ -105,31 +107,166 @@
     opacity: 1;
 }
 .cook {
-    width: 80px;
-}
+    width: 80px ;}
 
 .small-dish {
     width: 200px;
 }
 
+.small-dish .img {
+    width: 150px;
+}
+
+.event-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 56px;
+}
+
+.event-descr {
+    display: block;
+    text-align: center;
+    color: rgba(248, 248, 248, 0.6);
+    font-size: 10px;
+    line-height: 1.4;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+    max-width: 210px;    
+}
+
+.event-country {
+    display: block;
+    margin: 0;
+    margin-top: 8px;
+    color: rgba(248, 248, 248, 0.2);
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
 .big-dish {
     width: 200px;
+    background-position: 50%;
+    background-size: 450px;
 }
 
 @media screen and (min-width: 768px) {
-
-.hero-wrapper {
+   
+    .hero-wrapper {
         padding-bottom: 64px;
     }
 
-.hero-title {
+    .hero-title {
         padding-bottom: 16px;
         font-size: 36px;
     }
 
     .hero-description {
-        padding-bottom: 32px;
+        margin-bottom: 32px;
         font-size: 16px;
         line-height: 1.5;
+    }
+
+    .hero-btn {
+        padding: 14px 28px;
+    }
+
+    .swiper {
+        /* width: 704px; */
+        width: 871px;
+        height: 468px;
+    }
+
+    .swiper-wrapper {
+        width: 736px;
+    }
+
+    .swiper-slide {
+        height: 442px;
+    }
+
+    .swiper-slide .cook {
+        width: 137px;
+    }
+
+    .small-dish {
+        width: 351px;
+    }
+
+    .small-dish .img {
+        width: 300px;
+    }
+
+    .event-info {
+        padding-top: 67px;
+        margin-bottom: 32px;
+    }
+
+    .event-descr {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.28;
+        /* padding-top: 32px; */
+        margin-top: 10px;
+    }
+
+    .event-country {
+        font-size: 12px;
+        line-height: 1.16;
+    }
+
+    .big-dish {
+        width: 351px;
+        background-size: 650px;
+        background-position: 60%;
+    }
+
+    .swiper .swiper-pagination {
+        left: -84px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container.hero-container {
+        width: 100%;
+        padding-right: 0;
+        overflow: hidden;
+    }
+
+    .hero-div {
+        display: flex;
+        align-items: center;
+        padding-bottom: 100px;
+        column-gap: 32px;
+    }
+    
+    .hero-title, .hero-description {
+        text-align: left;
+        width: 446px;
+    }
+
+    .swiper {
+        width: 851px;
+    }
+
+    .small-dish .img {
+        width: 304px;
+    }
+
+    .event-descr {
+        margin-top: 32px;
+    }
+
+    .big-dish {
+        width: 351px;
+        background-size: 650px;
+        background-position: 50%;
+    }
+
+    .swiper .swiper-pagination {
+        left: -66px;
     }
 }

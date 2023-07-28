@@ -11,20 +11,18 @@ a {
 .header-tablet {
   display: none;
 }
-.container {
-  max-width: 375px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 0 auto;
-}
+
 .nav-link {
   color: var(--popular-text-desc-color);
-  font-family: Inter;
   font-size: 12px;
   font-style: normal;
+  transition: color var(--transition-dur-and-func);
 }
+
 .header {
+  height: 97px;
   padding-top: 25px;
+  padding-bottom: 85px;
 }
 .logo-header span {
   color: var(--accent-color);
@@ -50,7 +48,9 @@ a {
   background-color: transparent;
   padding: 0;
 }
-
+.header-fav {
+  padding-bottom: 50px;
+}
 .header-sup {
   display: flex;
   justify-content: space-between;
@@ -127,18 +127,24 @@ a {
   margin: 0;
 }
 .item-nav {
+  font-family: Inter;
   color: var(--pr-text-DT-color);
   font-size: 12px;
-  font-style: normal;
-  line-height: normal;
   transition: color var(--transition-dur-and-func);
 }
+
+.nav-link:is(:hover, :focus) {
+  color: var(--accent-color);
+}
+
 .down-content {
   position: absolute;
   bottom: 20px;
   left: 20px;
 }
-
+.nav-link.current {
+  color: var(--accent-color);
+}
 .hamburger-social-list {
   margin: 0;
   padding: 0;
@@ -205,9 +211,12 @@ a {
   .header-mobile {
     display: none;
   }
-  .container {
-    max-width: 768px;
-    padding: 0 32px;
+  .header {
+    padding-top: 32px;
+    padding-bottom: 95px;
+  }
+  .header-fav {
+    padding-bottom: 52px;
   }
   .header-tablet {
     display: flex;
@@ -240,12 +249,17 @@ a {
 }
 
 @media screen and (min-width: 1200px) {
-  .container {
-    max-width: 1200px;
-    padding: 0 100px;
+  .header {
+    height: 100px;
+    padding-top: 45px;
+    padding-bottom: 94px;
   }
   .actions {
     gap: 25px;
+  }
+
+  .header-fav {
+    padding-bottom: 40px;
   }
   .theme-switch-container {
     display: inline-block;

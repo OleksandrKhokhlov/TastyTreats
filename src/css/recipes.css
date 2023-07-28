@@ -1,6 +1,11 @@
 .recipes-blok {
   width: 100%;
 }
+
+.recipe-section {
+  padding-bottom: 40px;
+}
+
 .recipe {
   position: relative;
 
@@ -21,40 +26,44 @@
   top: 16px;
   right: 16px;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0;
 
   border: 0;
-  background-color: transparent;
-
+  background: 0 0;
+  
   cursor: pointer;
 }
 .recipe-heart-icon {
   fill: transparent;
-  stroke: #F8F8F8;
+  stroke: var(--bcg-body-color);
+
   stroke-width: 2px;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-opacity: 0.5;
+}
+.recipe-heart-icon-in-favorites {
+  fill: var(--bcg-body-color);
 }
 .recipe-info {
   min-height: 105px;
 }
 .recipe:not(:last-child) {
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 .recipe-name {
   width: 100%;
   margin: 0;
   margin-bottom: 8px;
 
-  font-family: Inter;
   font-size: 14px;
-  font-style: normal;
   font-weight: 600;
-  line-height: 18px; /* 128.571% */
+  line-height: 1.3;
   text-transform: uppercase;
 
-  color: #F8F8F8;
+  color: var(--sec-text-color);
 
   overflow: hidden;
   text-overflow: ellipsis;
@@ -65,13 +74,11 @@
   margin: 0;
   margin-bottom: 16px;
 
-  font-family: Inter;
   font-size: 12px;
-  font-style: normal;
   font-weight: 400;
-  line-height: 16px;
+  line-height: 1.3;
 
-  color: #F8F8F8;
+  color: var(--sec-text-color);
 
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -92,13 +99,11 @@
 .recipe-rating-number {
   margin-right: 4px;
 
-  font-family: Inter;
   font-size: 14px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 1.3;
   
-  color: #F8F8F8;
+  color: var(--sec-text-color);
   }
 .recipe-rating-stars {
   display: flex;
@@ -115,10 +120,10 @@
   justify-content: center;
 }
 .no-filled-star-icon {
-  fill: rgba(248, 248, 248, 0.10);
+  fill: var( --rating-color-LT-uncheck);
 }
 .filled-star-icon {
-  fill: #EEA10C;
+  fill: var(--rating-color);
 }
 .recipe-btn {
   min-width: 89px;
@@ -128,7 +133,6 @@
   align-items: center;
   gap: 10px;
 
-  font-family: Inter;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -136,8 +140,8 @@
 
   border-radius: 8px;
   border: 0;
-  background: #9BB537;
-  color: #F8F8F8;
+  background: var(--accent-color);
+  color: var(--sec-text-color);
 }
 
 @media screen and (min-width: 768px) {

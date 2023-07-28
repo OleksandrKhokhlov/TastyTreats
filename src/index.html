@@ -5,25 +5,36 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tasty Treats</title>
+    <link
+      href="https://unpkg.com/slim-select@latest/dist/slimselect.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <header>
-      <!------------------------- Header --------------------------->
-      <load src="./partials/header.html" />
-    </header>
+    <!------------------------- Header --------------------------->
+    <load src="./partials/header.html" />
     <!-------------------------- Main ------------------------------->
     <main>
+      <!------------------------- loader ----------------------------->
+      <load src="./partials/loader.html" />
       <!-- Hero -->
       <load src="./partials/hero.html" />
-      <!-- categories -->
-      <load src="./partials/categories.html" />
-      <!-- search -->
-      <load src="./partials/search.html" />
-      <!-- recipes -->
-      <load src="./partials/recipes.html" />
-      <!-- popular recipes -->
-      <load src="./partials/popular-recipes.html" />
+
+      <div class="main-wrapper container">
+        <aside class="left-block">
+          <!-- categories -->
+          <load src="./partials/categories.html" />
+          <!-- popular recipes -->
+          <load src="./partials/popular-recipes.html" />
+        </aside>
+        <div class="right-block">
+          <!-- search -->
+          <load src="./partials/search.html" />
+          <!-- recipes -->
+          <load src="./partials/recipes.html" />
+        </div>
+      </div>
     </main>
     <!--------------------- modal windows -------------------------->
     <!-- recipe modal -->
@@ -33,7 +44,10 @@
     <!-- order-now modal -->
     <load src="./partials/order-now-modal.html" />
     <!-- pagination -->
-    <load src="./partials/pagin.html"/>
+    <load src="./partials/pagin.html" />
+    <!------------------------ ScrollUp ---------------------------->
+    <load src="./partials/btn-scrollup.html" />
+
     <!------------------------------ js scripts -------------------->
     <script type="module" src="/main.js"></script>
   </body>
